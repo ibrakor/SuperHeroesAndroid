@@ -15,7 +15,13 @@ class BiographyLocalSource (private val context: Context, private val jsonSerial
     fun getBiography(heroId: String): Either<ErrorApp, Biography>{
         return try {
             val jsonBiography=sharedPreferences.getString(heroId,"")
-            jsonSerialization.fromJson(jsonBiography!!,Biography::class.java).right()
+            if (jsonBiography.isNullOrEmpty()){
+                ErrorApp.UnknownError.left()
+
+            } else{
+                jsonSerialization.fromJson(jsonBiography,Biography::class.java).right()
+
+            }
         } catch (
             ex: Exception
         ){

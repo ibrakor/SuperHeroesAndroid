@@ -14,7 +14,13 @@ class WorkLocalSource(private val context: Context, private val jsonSerializatio
     fun getWork(heroId: String): Either<ErrorApp, Work>{
         return try {
             val jsonWork = sharedPref.getString(heroId,"")
-            jsonSerialization.fromJson(jsonWork!!,Work::class.java).right()
+            if (jsonWork.isNullOrEmpty()){
+                ErrorApp.UnknownError.left()
+
+            } else{
+                jsonSerialization.fromJson(jsonWork,Work::class.java).right()
+
+            }
         } catch (ex: Exception){
             ErrorApp.UnknownError.left()
         }
