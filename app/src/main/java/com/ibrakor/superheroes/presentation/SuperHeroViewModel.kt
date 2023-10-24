@@ -18,7 +18,7 @@ class SuperHeroViewModel(private val getSuperHeroUseCase: GetSuperHeroUseCase, p
         val errorApp: ErrorApp?=null,
         val isLoading: Boolean=false,
         val superHero: SuperHero?=null,
-        val superHeroes: List<SuperHero>?=null
+        val models: List<SuperHero>?=null
     )
 
     fun loadSuperHero(id: Int){
@@ -31,7 +31,7 @@ class SuperHeroViewModel(private val getSuperHeroUseCase: GetSuperHeroUseCase, p
     }
 
     private fun ResponseGetSuperHeroSucces(it: SuperHero) {
-        _uiState.postValue(UiState(superHero = it))
+        _uiState.postValue(UiState(models = it))
     }
 
     private fun responseError(it: ErrorApp) {

@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.ibrakor.avilaentapaspractica.app.serialization.GsonSerialization
 import com.ibrakor.ejercicioformulario02.app.extensions.setUrl
-import com.ibrakor.superheroes.R
 import com.ibrakor.superheroes.data.SuperHeroesDataRepository
 import com.ibrakor.superheroes.data.local.SuperHeroesLocalSource
 import com.ibrakor.superheroes.data.remote.SuperHeroesRemoteSource

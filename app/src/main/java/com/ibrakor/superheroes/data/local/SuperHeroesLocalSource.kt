@@ -32,10 +32,10 @@ class SuperHeroesLocalSource(private val context: Context, private val jsonSeria
     }
 
      */
-    fun saveSuperHeroes(superHeroes: List<SuperHero>): Either<ErrorApp, Boolean>{
+    fun saveSuperHeroes(models: List<SuperHero>): Either<ErrorApp, Boolean>{
         try {
             with(sharedPreferences.edit()){
-                val jsonHeroes = superHeroes.map {
+                val jsonHeroes = models.map {
                     it.id.toString() to jsonSerialization.toJson(it, SuperHero::class.java)
                 }.toMap()
 

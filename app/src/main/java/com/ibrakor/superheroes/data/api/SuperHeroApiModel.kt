@@ -15,7 +15,7 @@ data class SuperHeroApiModel(
 
 )
 
-fun SuperHeroApiModel.toModel(): SuperHero = SuperHero(this.id,this.name,this.biography.toModel(),this.work.toModel(),this.images.toUrl())
+fun SuperHeroApiModel.toModel(): SuperHero = SuperHero(this.id,this.name,this.images.toUrl())
 
 data class BiographyApiModel(
     @SerializedName("fullName") val fullName: String
