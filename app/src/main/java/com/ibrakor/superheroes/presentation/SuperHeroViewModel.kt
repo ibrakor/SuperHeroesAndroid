@@ -6,11 +6,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ibrakor.ejercicioformulario02.app.ErrorApp
 import com.ibrakor.superheroes.domain.GetSuperHeroUseCase
+import com.ibrakor.superheroes.domain.GetSuperHeroesFeedUseCase
 import com.ibrakor.superheroes.domain.SuperHero
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class SuperHeroViewModel(private val getSuperHeroUseCase: GetSuperHeroUseCase): ViewModel() {
+class SuperHeroViewModel(private val getSuperHeroUseCase: GetSuperHeroUseCase, private val getSuperHeroesFeedUseCase: GetSuperHeroesFeedUseCase): ViewModel() {
     private val _uiState = MutableLiveData<UiState>()
     val uiState: LiveData<UiState> = _uiState
     data class UiState(

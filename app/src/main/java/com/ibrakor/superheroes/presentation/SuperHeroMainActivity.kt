@@ -11,14 +11,16 @@ import com.ibrakor.superheroes.data.local.SuperHeroesLocalSource
 import com.ibrakor.superheroes.data.remote.SuperHeroesRemoteSource
 import com.ibrakor.superheroes.databinding.ActivitySuperHeroMainBinding
 import com.ibrakor.superheroes.domain.GetSuperHeroUseCase
+import com.ibrakor.superheroes.domain.GetSuperHeroesFeedUseCase
 import com.ibrakor.superheroes.domain.SuperHero
 
 class SuperHeroMainActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySuperHeroMainBinding
     private val viewModel: SuperHeroViewModel by lazy {
-        SuperHeroViewModel(GetSuperHeroUseCase(SuperHeroesDataRepository(SuperHeroesRemoteSource(),
+        val repository = SuperHeroesDataRepository(SuperHeroesRemoteSource(),
             SuperHeroesLocalSource(this,GsonSerialization())
-        )))
+        )
+        SuperHeroViewModel(GetSuperHeroUseCase(repository), GetSuperHeroesFeedUseCase(repository))
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
