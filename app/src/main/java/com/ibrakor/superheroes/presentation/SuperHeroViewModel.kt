@@ -8,6 +8,7 @@ import com.ibrakor.ejercicioformulario02.app.ErrorApp
 import com.ibrakor.superheroes.domain.GetSuperHeroUseCase
 import com.ibrakor.superheroes.domain.GetSuperHeroesFeedUseCase
 import com.ibrakor.superheroes.domain.SuperHero
+import com.ibrakor.superheroes.domain.SuperHeroOutput
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -17,8 +18,8 @@ class SuperHeroViewModel(private val getSuperHeroUseCase: GetSuperHeroUseCase, p
     data class UiState(
         val errorApp: ErrorApp?=null,
         val isLoading: Boolean=false,
-        val superHero: SuperHero?=null,
-        val models: List<SuperHero>?=null
+        val superHero: SuperHeroOutput?=null,
+        val superHeroList: List<SuperHeroOutput>?=null
     )
 
     fun loadSuperHero(id: Int){
@@ -30,8 +31,8 @@ class SuperHeroViewModel(private val getSuperHeroUseCase: GetSuperHeroUseCase, p
         }
     }
 
-    private fun ResponseGetSuperHeroSucces(it: SuperHero) {
-        _uiState.postValue(UiState(models = it))
+    private fun ResponseGetSuperHeroSucces(it: SuperHeroOutput) {
+        _uiState.postValue(UiState(superHero = it))
     }
 
     private fun responseError(it: ErrorApp) {

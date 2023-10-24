@@ -23,6 +23,8 @@ class SuperHeroesDataRepository(
         return ErrorApp.UnknownError.left()
     }
 
+
+
     override suspend fun obtainSuperHeros(): Either<ErrorApp, List<SuperHero>> {
         val localResult = localDataSource.getSuperHeroes()
         if (localResult.get().size == 0) {

@@ -14,7 +14,7 @@ class SuperHeroesRemoteSource {
     suspend fun getSuperHeroes(): Either<ErrorApp, List<SuperHero>>{
         val heroesResult = apiClient.superHeroApi.getSuperHero()
         if (heroesResult.isSuccessful){
-            val heroes=heroesResult.body()!!.subList(0, 20)
+            val heroes=heroesResult.body()!!//.subList(0, 20)
 
             return heroes!!.toModel().right()
         }

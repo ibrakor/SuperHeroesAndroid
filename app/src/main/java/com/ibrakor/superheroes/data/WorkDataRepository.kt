@@ -11,11 +11,11 @@ class WorkDataRepository(
     private val remoteSource: WorkRemoteSource,
     private val localSource: WorkLocalSource
 ): WorkRepository {
-    override suspend fun obtainWork(superHeroId: String): Either<ErrorApp, Work> {
-       val localResult=localSource.getWork(superHeroId)
+    override suspend fun obtainWork(superHeroId: Int): Either<ErrorApp, Work> {
+       val localResult=localSource.getWork(superHeroId.toString())
         localResult.mapLeft {
-    return  remoteSource.getWork(superHeroId).map {
-        localSource.saveWork(superHeroId,it)
+    return  remoteSource.getWork(superHeroId.toString()).map {
+        localSource.saveWork(superHeroId.toString(),it)
         it
     }
 
