@@ -30,11 +30,12 @@ class SuperHeroesDataRepository(private val remoteDataSource: SuperHeroesRemoteS
 
     override suspend fun obtainSuperHeros(): Either<ErrorApp, List<SuperHero>> {
         val localResult = localDataSource.getSuperHeroes()
-        localResult.mapLeft {
+        if (localResult.get().size==0){
             return remoteDataSource.getSuperHeroes().map {
                 localDataSource.saveSuperHeroes(it)
                 it
-            }
+        }
+
         }
         return localResult
     }
