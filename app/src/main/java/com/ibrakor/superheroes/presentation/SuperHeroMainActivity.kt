@@ -41,6 +41,7 @@ class SuperHeroMainActivity : AppCompatActivity() {
             superheroImage.setUrl(it.imgUrl)
             superheroFullname.text=it.biography.fullName
             superheroName.text=it.name
+            superheroWork.text=it.work.occupation
 
         }
     }
