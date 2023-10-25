@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SuperHeroes</string>
+    <string name="label_unknown_error">Error desconocido</string>
+    <string name="label_network_error">Error de conexion</string>
 </resources>
