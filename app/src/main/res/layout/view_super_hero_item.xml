@@ -6,10 +6,6 @@
     android:layout_height="wrap_content"
     tools:context=".presentation.SuperHeroMainActivity"
     android:padding="10dp">
-    <com.faltenreich.skeletonlayout.SkeletonLayout
-        android:id="@+id/skeletonLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,7 +52,7 @@
 
         </TextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.faltenreich.skeletonlayout.SkeletonLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

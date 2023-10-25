@@ -35,6 +35,6 @@ class SuperHeroViewModel(private val getSuperHeroUseCase: GetSuperHeroUseCase, p
     }
 
     private fun responseError(it: ErrorApp) {
-        _uiState.postValue(UiState(errorApp = it))
+        _uiState.postValue(UiState(errorApp = it, isLoading = false))
     }
 }

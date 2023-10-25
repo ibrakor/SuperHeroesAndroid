@@ -10,7 +10,7 @@ import com.ibrakor.superheroes.domain.SuperHeroOutput
 class SuperHeroAdapter: ListAdapter<SuperHeroOutput,SuperHeroViewHolder>(SuperHeroDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperHeroViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_super_hero_main, parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_super_hero_item, parent,false)
         return SuperHeroViewHolder(view)
     }
     override fun getItemCount(): Int = currentList.size

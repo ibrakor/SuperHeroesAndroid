@@ -5,7 +5,9 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.faltenreich.skeletonlayout.Skeleton
+import com.faltenreich.skeletonlayout.applySkeleton
 import com.ibrakor.avilaentapaspractica.app.serialization.GsonSerialization
+import com.ibrakor.superheroes.R
 import com.ibrakor.superheroes.data.BiographyDataRepository
 import com.ibrakor.superheroes.data.SuperHeroesDataRepository
 import com.ibrakor.superheroes.data.WorkDataRepository
@@ -33,12 +35,16 @@ class SuperHeroMainActivity : AppCompatActivity() {
     }
 
     private val superHeroAdapter = SuperHeroAdapter()
+    private lateinit var skeleton: Skeleton
+
     private lateinit var binding: ActivityRecyclerSuperoHeroBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupBinding()
         setupView()
+        skeleton = binding.recyclerSuperHero.applySkeleton(R.layout.view_super_hero_item,8)
+
         setupObserver()
         viewModel.loadSuperHerosList()
     }
@@ -58,11 +64,11 @@ class SuperHeroMainActivity : AppCompatActivity() {
         val observer = Observer<SuperHeroViewModel.UiState>{
 
             if (it.isLoading){
-
+                showLoading()
 
             } else{
 
-
+                hideLoading()
             }
             it.superHeroList?.let {
                 bindDataSuperHero(it)
@@ -71,6 +77,13 @@ class SuperHeroMainActivity : AppCompatActivity() {
         viewModel.uiState.observe(this,observer)
     }
 
+    private fun showLoading() {
+        skeleton.showSkeleton()
+    }
+
+    private fun hideLoading() {
+        skeleton.showOriginal()
+    }
 
 
     private fun bindDataSuperHero(superHeroList: List<SuperHeroOutput>) {
