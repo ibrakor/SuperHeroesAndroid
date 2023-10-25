@@ -52,6 +52,7 @@ dependencies {
     implementation ("com.google.code.gson:gson:2.10.1")
     //ViewModelScope
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")

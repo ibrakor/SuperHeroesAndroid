@@ -1,4 +1,4 @@
-package com.ibrakor.superheroes.app.extensions
+package com.ibrakor.app.extensions
 
 import com.ibrakor.superheroes.data.api.SuperHeroApiModel
 import com.ibrakor.superheroes.data.api.toModel

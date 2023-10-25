@@ -3,10 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".presentation.SuperHeroMainActivity"
     android:padding="10dp">
-
+    <com.faltenreich.skeletonlayout.SkeletonLayout
+        android:id="@+id/skeletonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,8 +18,8 @@
 
             android:scaleType="centerCrop"
             android:id="@+id/superhero_image"
-            android:layout_width="125dp"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/width_image_list"
+            android:layout_height="@dimen/heigh_image_list"
             tools:src="@tools:sample/avatars"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -25,7 +28,7 @@
         <TextView
 
             tools:text="sssssssssss"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="@dimen/spacing"
             android:id="@+id/superhero_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,7 +37,7 @@
 
         </TextView>
         <TextView
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/spacing"
             tools:text="sssssssssss"
             android:id="@+id/superhero_fullname"
             android:layout_width="wrap_content"
@@ -53,5 +56,7 @@
 
         </TextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.faltenreich.skeletonlayout.SkeletonLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.ibrakor.ejercicioformulario02.app.ErrorApp
 import com.ibrakor.superheroes.domain.GetSuperHeroUseCase
 import com.ibrakor.superheroes.domain.GetSuperHeroesFeedUseCase
-import com.ibrakor.superheroes.domain.SuperHero
 import com.ibrakor.superheroes.domain.SuperHeroOutput
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -22,17 +21,20 @@ class SuperHeroViewModel(private val getSuperHeroUseCase: GetSuperHeroUseCase, p
         val superHeroList: List<SuperHeroOutput>?=null
     )
 
-    fun loadSuperHero(id: Int){
-        //_uiState.postValue(UiState(isLoading = true))
+    fun loadSuperHerosList(){
+        _uiState.postValue(UiState(isLoading = true))
         viewModelScope.launch(Dispatchers.IO) {
-            getSuperHeroUseCase.invoke(id).fold(
-                {responseError(it)},{ResponseGetSuperHeroSucces(it)}
+            getSuperHeroesFeedUseCase.invoke().fold(
+                {responseError(it)},{responseGetAllSuperHeroesSucces(it)}
             )
         }
     }
 
-    private fun ResponseGetSuperHeroSucces(it: SuperHeroOutput) {
+    private fun responseGetSuperHeroSucces(it: SuperHeroOutput) {
         _uiState.postValue(UiState(superHero = it))
+    }
+    private fun responseGetAllSuperHeroesSucces(superHeroList: List<SuperHeroOutput>){
+        _uiState.postValue(UiState(superHeroList = superHeroList, isLoading = false))
     }
 
     private fun responseError(it: ErrorApp) {
