@@ -30,9 +30,6 @@ class SuperHeroViewModel(private val getSuperHeroUseCase: GetSuperHeroUseCase, p
         }
     }
 
-    private fun responseGetSuperHeroSucces(it: SuperHeroOutput) {
-        _uiState.postValue(UiState(superHero = it))
-    }
     private fun responseGetAllSuperHeroesSucces(superHeroList: List<SuperHeroOutput>){
         _uiState.postValue(UiState(superHeroList = superHeroList, isLoading = false))
     }
