@@ -22,7 +22,7 @@ class SuperHeroViewModel(private val getSuperHeroUseCase: GetSuperHeroUseCase, p
     )
 
     fun loadSuperHerosList(){
-        _uiState.postValue(UiState(isLoading = true))
+        _uiState.value= (UiState(isLoading = true))
         viewModelScope.launch(Dispatchers.IO) {
             getSuperHeroesFeedUseCase.invoke().fold(
                 {responseError(it)},{responseGetAllSuperHeroesSucces(it)}
