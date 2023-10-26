@@ -29,9 +29,20 @@ class SuperHeroViewModel(private val getSuperHeroUseCase: GetSuperHeroUseCase, p
             )
         }
     }
+    fun loadSuperHeroDetail(heroId: Int){
+        _uiState.value=(UiState(isLoading = true))
+        viewModelScope.launch(Dispatchers.IO) {
+            getSuperHeroUseCase.invoke(heroId).fold(
+                {responseError(it)},{responseGetSuperHeroDetailSucces(it)}
+            )
+        }
+    }
 
     private fun responseGetAllSuperHeroesSucces(superHeroList: List<SuperHeroOutput>){
         _uiState.postValue(UiState(superHeroList = superHeroList, isLoading = false))
+    }
+    private fun responseGetSuperHeroDetailSucces(superHero: SuperHeroOutput){
+        _uiState.postValue(UiState(superHero= superHero, isLoading = false))
     }
 
     private fun responseError(it: ErrorApp) {

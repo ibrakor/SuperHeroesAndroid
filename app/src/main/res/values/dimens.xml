@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="heigh_image_list">150dp</dimen>
+    <dimen name="heigh_image_detail">200dp</dimen>
     <dimen name="width_image_list">125dp</dimen>
     <dimen name="spacing">8dp</dimen>
+    <dimen name="spacing_top">10dp</dimen>
 
 
 </resources>
