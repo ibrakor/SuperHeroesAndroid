@@ -15,7 +15,7 @@ class SuperHeroesRemoteSource {
         try {
             val heroesResult = apiClient.superHeroApi.getSuperHero()
             if (heroesResult.isSuccessful){
-                val heroes=heroesResult.body()!!.subList(0, 10)
+                val heroes=heroesResult.body()!!.subList(0, 18)
 
                 return heroes!!.toModel().right()
             }

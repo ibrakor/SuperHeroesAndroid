@@ -46,7 +46,7 @@ class SuperHeroDetailActivity() : AppCompatActivity() {
         setupBinding()
 
         setupOberser()
-        val heroId = intent.getIntExtra(SuperHeroViewHolder.SUPERHERO_ID_EXTRA, -1)
+        val heroId = intent.getIntExtra(SuperHeroViewHolder.SUPERHERO_ID_EXTRA, 1)
 
         viewModel.loadSuperHeroDetail(heroId)
     }
