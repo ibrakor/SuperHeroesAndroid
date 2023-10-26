@@ -22,9 +22,7 @@ class SuperHeroViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
             superheroFullname.text = model.biography.fullName
             superheroName.text = model.superHero.name
             superheroWork.text = model.work.occupation
-            view.setOnClickListener {
-                (view.context as Activity).startActivity(Intent(Activity::class.java, De))
-            }
+
         }
     }
 
