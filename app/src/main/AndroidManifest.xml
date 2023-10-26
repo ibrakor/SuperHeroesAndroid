@@ -19,7 +19,7 @@
             android:name=".features.detail.presentation.SuperHeroDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".features.list.presentation.SuperHeroMainActivity"
+            android:name=".features.list.presentation.SuperHeroListMainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

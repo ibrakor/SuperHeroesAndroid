@@ -24,8 +24,8 @@ import com.ibrakor.superheroes.features.list.domain.GetSuperHeroUseCase
 import com.ibrakor.superheroes.features.list.domain.GetSuperHeroesFeedUseCase
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 
-class SuperHeroMainActivity : AppCompatActivity() {
-    private val viewModel: SuperHeroViewModel by lazy {
+class SuperHeroListMainActivity : AppCompatActivity() {
+    private val viewModel: SuperHeroListViewModel by lazy {
         val superHeroRepository = SuperHeroesDataRepository(
             SuperHeroesRemoteSource(),
             SuperHeroesLocalSource(this,GsonSerialization())
@@ -35,7 +35,7 @@ class SuperHeroMainActivity : AppCompatActivity() {
             BiographyRemoteSource(),
             BiographyLocalSource(this,GsonSerialization())
         )
-        SuperHeroViewModel(GetSuperHeroUseCase(superHeroRepository,workRepository,biographyRepository), GetSuperHeroesFeedUseCase(superHeroRepository, workRepository,biographyRepository))
+        SuperHeroListViewModel( GetSuperHeroesFeedUseCase(superHeroRepository, workRepository,biographyRepository))
     }
 
     private val superHeroAdapter = SuperHeroAdapter()
@@ -56,7 +56,7 @@ class SuperHeroMainActivity : AppCompatActivity() {
     private fun setupView() {
         binding.apply {
             recyclerSuperHero.layoutManager=LinearLayoutManager(
-                this@SuperHeroMainActivity,
+                this@SuperHeroListMainActivity,
                 LinearLayoutManager.VERTICAL,
                 false
             )
@@ -65,7 +65,7 @@ class SuperHeroMainActivity : AppCompatActivity() {
     }
 
     private fun setupObserver() {
-        val observer = Observer<SuperHeroViewModel.UiState>{
+        val observer = Observer<SuperHeroListViewModel.UiState>{
 
             if (it.isLoading){
                 showLoading()

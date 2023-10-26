@@ -59,12 +59,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/superhero_name"
-            app:layout_constraintTop_toBottomOf="@id/superhero_name"
+            app:layout_constraintTop_toBottomOf="@id/super_hero_full_name"
             tools:text="NombreCompleto"
             android:layout_marginTop="@dimen/spacing_top"
             >
 
         </TextView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

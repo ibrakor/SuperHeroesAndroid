@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".features.list.presentation.SuperHeroMainActivity"
+    tools:context=".features.list.presentation.SuperHeroListMainActivity"
     android:padding="10dp">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

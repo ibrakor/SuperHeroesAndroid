@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.ibrakor.avilaentapaspractica.app.serialization.GsonSerialization
 import com.ibrakor.ejercicioformulario02.app.extensions.setUrl
-import com.ibrakor.superheroes.R
 import com.ibrakor.superheroes.databinding.ViewSuperHeroDetailBinding
 import com.ibrakor.superheroes.features.list.data.BiographyDataRepository
 import com.ibrakor.superheroes.features.list.data.SuperHeroesDataRepository
@@ -20,10 +19,10 @@ import com.ibrakor.superheroes.features.list.domain.GetSuperHeroUseCase
 import com.ibrakor.superheroes.features.list.domain.GetSuperHeroesFeedUseCase
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 import com.ibrakor.superheroes.features.list.presentation.SuperHeroViewHolder
-import com.ibrakor.superheroes.features.list.presentation.SuperHeroViewModel
+import com.ibrakor.superheroes.features.list.presentation.SuperHeroListViewModel
 
 class SuperHeroDetailActivity() : AppCompatActivity() {
-    private val viewModel: SuperHeroViewModel by lazy {
+    private val viewModel: SuperHeroDetailViewModel by lazy {
         val superHeroRepository = SuperHeroesDataRepository(
             SuperHeroesRemoteSource(),
             SuperHeroesLocalSource(this, GsonSerialization())
@@ -37,7 +36,7 @@ class SuperHeroDetailActivity() : AppCompatActivity() {
             BiographyRemoteSource(),
             BiographyLocalSource(this, GsonSerialization())
         )
-        SuperHeroViewModel(GetSuperHeroUseCase(superHeroRepository,workRepository,biographyRepository), GetSuperHeroesFeedUseCase(superHeroRepository, workRepository,biographyRepository))
+        SuperHeroDetailViewModel(GetSuperHeroUseCase(superHeroRepository,workRepository,biographyRepository))
     }
     private lateinit var binding: ViewSuperHeroDetailBinding
 
@@ -52,12 +51,12 @@ class SuperHeroDetailActivity() : AppCompatActivity() {
     }
 
     private fun setupOberser() {
-        val observer = Observer<SuperHeroViewModel.UiState>{
+        val observer = Observer<SuperHeroDetailViewModel.UiState>{
             it.superHero?.let {
                 bindDataDetail(it)
             }
         }
-        viewModel.uiState.observe(this,observer)
+       viewModel.uiState.observe(this,observer)
     }
 
     private fun bindDataDetail(it: SuperHeroOutput) {
@@ -65,6 +64,7 @@ class SuperHeroDetailActivity() : AppCompatActivity() {
             imageDetail.setUrl(it.superHero.imgUrl)
             superheroName.text=it.superHero.name
             superHeroFullName.text=it.biography.fullName
+            superHeroConections.text=it.superHero.connections
         }
     }
 
