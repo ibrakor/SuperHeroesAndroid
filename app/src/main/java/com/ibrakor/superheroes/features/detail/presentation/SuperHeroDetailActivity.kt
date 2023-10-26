@@ -15,11 +15,9 @@ import com.ibrakor.superheroes.features.list.data.local.WorkLocalSource
 import com.ibrakor.superheroes.features.list.data.remote.BiographyRemoteSource
 import com.ibrakor.superheroes.features.list.data.remote.SuperHeroesRemoteSource
 import com.ibrakor.superheroes.features.list.data.remote.WorkRemoteSource
-import com.ibrakor.superheroes.features.list.domain.GetSuperHeroUseCase
-import com.ibrakor.superheroes.features.list.domain.GetSuperHeroesFeedUseCase
+import com.ibrakor.superheroes.features.detail.domain.GetSuperHeroUseCase
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 import com.ibrakor.superheroes.features.list.presentation.SuperHeroViewHolder
-import com.ibrakor.superheroes.features.list.presentation.SuperHeroListViewModel
 
 class SuperHeroDetailActivity() : AppCompatActivity() {
     private val viewModel: SuperHeroDetailViewModel by lazy {

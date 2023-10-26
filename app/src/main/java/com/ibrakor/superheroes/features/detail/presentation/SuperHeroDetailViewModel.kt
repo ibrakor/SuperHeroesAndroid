@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ibrakor.ejercicioformulario02.app.ErrorApp
-import com.ibrakor.superheroes.features.list.domain.GetSuperHeroUseCase
+import com.ibrakor.superheroes.features.detail.domain.GetSuperHeroUseCase
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -20,7 +20,6 @@ import com.ibrakor.superheroes.features.list.data.remote.BiographyRemoteSource
 import com.ibrakor.superheroes.features.list.data.remote.SuperHeroesRemoteSource
 import com.ibrakor.superheroes.features.list.data.remote.WorkRemoteSource
 import com.ibrakor.superheroes.databinding.ActivityRecyclerSuperoHeroBinding
-import com.ibrakor.superheroes.features.list.domain.GetSuperHeroUseCase
 import com.ibrakor.superheroes.features.list.domain.GetSuperHeroesFeedUseCase
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 
