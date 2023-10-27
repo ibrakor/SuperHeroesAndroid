@@ -1,3 +1,5 @@
 package com.ibrakor.superheroes.features.list.domain
 
-data class SuperHero(val id : Int, val name: String, val imgUrl: String, val connections: String)
+import com.ibrakor.superheroes.features.detail.domain.PowerStats
+
+data class SuperHero(val id : Int, val name: String, val imgUrl: String, val connections: String, val powerStats: PowerStats)

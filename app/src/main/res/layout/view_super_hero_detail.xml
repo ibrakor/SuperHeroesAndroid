@@ -72,7 +72,6 @@
             android:layout_marginTop="@dimen/spacing_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="@id/superhero_name"
             app:layout_constraintTop_toBottomOf="@id/super_hero_conections">
             <TextView
@@ -105,7 +104,36 @@
                 android:text="@string/label_fight">
 
             </TextView>
-
+            <TextView
+                android:id="@+id/intelligence_valor"
+                android:layout_marginTop="@dimen/spacing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/superhero_intelligence"
+                app:layout_constraintStart_toStartOf="@id/superhero_intelligence"
+                app:layout_constraintEnd_toEndOf="@id/superhero_intelligence"
+                tools:text="30">
+            </TextView>
+            <TextView
+                android:id="@+id/speed_valor"
+                android:layout_marginTop="@dimen/spacing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/superhero_speed"
+                app:layout_constraintStart_toStartOf="@id/superhero_speed"
+                app:layout_constraintEnd_toEndOf="@id/superhero_speed"
+                tools:text="30">
+            </TextView>
+            <TextView
+                android:id="@+id/figh_valor"
+                android:layout_marginTop="@dimen/spacing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/superhero_fight"
+                app:layout_constraintStart_toStartOf="@id/superhero_fight"
+                app:layout_constraintEnd_toEndOf="@id/superhero_fight"
+                tools:text="30">
+            </TextView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

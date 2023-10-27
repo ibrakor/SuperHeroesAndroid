@@ -68,6 +68,9 @@ class SuperHeroDetailActivity() : AppCompatActivity() {
             superHeroConections.text=it.superHero.connections
             superheroAlignment.text=it.biography.alignmente.uppercase()
             superheroAlignment.setAlignmentColor()
+            speedValor.text=it.superHero.powerStats.speed
+            fighValor.text=it.superHero.powerStats.combat
+            intelligenceValor.text=it.superHero.powerStats.intelligence
         }
     }
 
