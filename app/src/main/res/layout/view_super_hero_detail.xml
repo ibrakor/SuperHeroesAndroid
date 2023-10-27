@@ -37,9 +37,10 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="@id/superhero_name"
             app:layout_constraintBottom_toBottomOf="@id/superhero_name"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/image_detail"
             android:textStyle="bold"
             android:textSize="15dp"
+            android:layout_marginEnd="@dimen/spacing"
             android:textColor="@color/aqua_blue"
             tools:text="GOOD">
 
@@ -61,11 +62,52 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/superhero_name"
             app:layout_constraintTop_toBottomOf="@id/super_hero_full_name"
-            tools:text="NombreCompleto"
+            tools:text="Descripcion"
             android:layout_marginTop="@dimen/spacing_top"
             >
 
         </TextView>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginHorizontal="@dimen/spacing_horizontal"
+            android:layout_marginTop="@dimen/spacing_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/superhero_name"
+            app:layout_constraintTop_toBottomOf="@id/super_hero_conections">
+            <TextView
+                android:id="@+id/superhero_intelligence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/label_intelligence"
+                app:layout_constraintStart_toStartOf="parent">
+                >
+
+            </TextView>
+            <TextView
+                android:id="@+id/superhero_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/label_speed">
+
+            </TextView>
+            <TextView
+                android:id="@+id/superhero_fight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/label_fight">
+
+            </TextView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
