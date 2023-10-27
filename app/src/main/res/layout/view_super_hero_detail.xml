@@ -68,6 +68,7 @@
 
         </TextView>
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/superhero_powerstats"
             android:layout_marginHorizontal="@dimen/spacing_horizontal"
             android:layout_marginTop="@dimen/spacing_top"
             android:layout_width="match_parent"
@@ -136,6 +137,14 @@
             </TextView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/details_images_recycler_view"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/superhero_powerstats">
+
+        </androidx.recyclerview.widget.RecyclerView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,7 +23,7 @@ class SuperHeroViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         binding = ViewSuperHeroItemBinding.bind(view)
 
         binding.apply {
-            superheroImage.setUrl(model.superHero.imgUrl)
+            superheroImage.setUrl(model.superHero.images.lImage)
             superheroFullname.text = model.biography.fullName
             superheroName.text = model.superHero.name
             superheroWork.text = model.work.occupation

@@ -3,7 +3,6 @@ package com.ibrakor.superheroes.features.list.presentation
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import com.ibrakor.superheroes.R
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 

@@ -1,6 +1,7 @@
 package com.ibrakor.superheroes.features.list.data.api
 
 import com.google.gson.annotations.SerializedName
+import com.ibrakor.superheroes.features.detail.domain.Images
 import com.ibrakor.superheroes.features.detail.domain.PowerStats
 import com.ibrakor.superheroes.features.list.domain.Biography
 import com.ibrakor.superheroes.features.list.domain.SuperHero
@@ -17,7 +18,7 @@ data class SuperHeroApiModel(
 
 )
 
-fun SuperHeroApiModel.toModel(): SuperHero = SuperHero(this.id,this.name,this.images.toUrl(),this.conections.affiliation, this.powerstats.toModel())
+fun SuperHeroApiModel.toModel(): SuperHero = SuperHero(this.id,this.name,this.images.toModel(),this.conections.affiliation, this.powerstats.toModel())
 
 data class BiographyApiModel(
     @SerializedName("fullName") val fullName: String,
@@ -25,9 +26,13 @@ data class BiographyApiModel(
 )
 fun BiographyApiModel.toModel(): Biography = Biography(this.fullName,this.alignment)
 data class ImagesApiModel(
-    @SerializedName("lg") val urlImage: String
+    @SerializedName("xs") val xsurlImage: String,
+    @SerializedName("sm") val smUrlImage: String,
+    @SerializedName("md") val mdUrlImage: String,
+    @SerializedName("lg") val lgUrlImage: String
 )
-fun ImagesApiModel.toUrl(): String= (this.urlImage)
+fun ImagesApiModel.toModel(): Images = Images(this.xsurlImage,this.smUrlImage,this.mdUrlImage,this.lgUrlImage)
+
 data class WorkApiModel(
     @SerializedName("occupation") val occupation: String
 )

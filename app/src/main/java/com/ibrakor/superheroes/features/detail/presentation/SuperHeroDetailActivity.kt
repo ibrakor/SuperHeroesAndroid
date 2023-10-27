@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.GridLayout.Alignment
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ibrakor.avilaentapaspractica.app.serialization.GsonSerialization
 import com.ibrakor.ejercicioformulario02.app.extensions.setUrl
 import com.ibrakor.superheroes.app.extensions.setAlignmentColor
@@ -39,16 +40,31 @@ class SuperHeroDetailActivity() : AppCompatActivity() {
         )
         SuperHeroDetailViewModel(GetSuperHeroUseCase(superHeroRepository,workRepository,biographyRepository))
     }
+
     private lateinit var binding: ViewSuperHeroDetailBinding
+    private val superHeroDetailAdapter = SuperHeroDetailAdapter()
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupBinding()
-
+        setupView()
         setupOberser()
         val heroId = intent.getIntExtra(SuperHeroViewHolder.SUPERHERO_ID_EXTRA, 1)
 
         viewModel.loadSuperHeroDetail(heroId)
+    }
+
+    private fun setupView() {
+        binding.apply {
+            detailsImagesRecyclerView.layoutManager=LinearLayoutManager(
+                this@SuperHeroDetailActivity,
+                LinearLayoutManager.HORIZONTAL,
+                false
+            )
+            detailsImagesRecyclerView.adapter= superHeroDetailAdapter
+        }
     }
 
     private fun setupOberser() {
@@ -62,7 +78,7 @@ class SuperHeroDetailActivity() : AppCompatActivity() {
 
     private fun bindDataDetail(it: SuperHeroOutput) {
         binding.apply {
-            imageDetail.setUrl(it.superHero.imgUrl)
+            imageDetail.setUrl(it.superHero.images.lImage)
             superheroName.text=it.superHero.name
             superHeroFullName.text=it.biography.fullName
             superHeroConections.text=it.superHero.connections
@@ -72,6 +88,12 @@ class SuperHeroDetailActivity() : AppCompatActivity() {
             fighValor.text=it.superHero.powerStats.combat
             intelligenceValor.text=it.superHero.powerStats.intelligence
         }
+        val images: MutableList<String> = mutableListOf()
+        images.add(it.superHero.images.xsImage)
+        images.add(it.superHero.images.sImage)
+        images.add(it.superHero.images.mImage)
+        images.add(it.superHero.images.lImage)
+        superHeroDetailAdapter.submitList(images)
     }
 
     private fun setupBinding() {
