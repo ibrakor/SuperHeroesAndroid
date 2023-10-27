@@ -17,7 +17,7 @@ class SuperHeroesRemoteSource {
             if (heroesResult.isSuccessful){
                 val heroes=heroesResult.body()!!.subList(0, 18)
 
-                return heroes!!.toModel().right()
+                return heroes.toModel().right()
             }
             return ErrorApp.NetworkError.left()
         } catch (ex: Exception){

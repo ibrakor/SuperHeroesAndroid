@@ -12,7 +12,7 @@ class SuperHeroAdapter: ListAdapter<SuperHeroOutput, SuperHeroViewHolder>(SuperH
 
     lateinit var onClick:(heroId: Int) -> Unit
     fun setEvent(onClick: (Int) -> Unit){
-
+        this.onClick = onClick
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperHeroViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.view_super_hero_item, parent,false)
@@ -21,7 +21,7 @@ class SuperHeroAdapter: ListAdapter<SuperHeroOutput, SuperHeroViewHolder>(SuperH
     override fun getItemCount(): Int = currentList.size
 
     override fun onBindViewHolder(holder: SuperHeroViewHolder, position: Int) {
-        holder.bind(currentList[position])
+        holder.bind(currentList[position],onClick)
     }
 
 }

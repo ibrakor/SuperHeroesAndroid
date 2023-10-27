@@ -1,5 +1,6 @@
 package com.ibrakor.superheroes.features.list.presentation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -20,6 +21,7 @@ import com.ibrakor.superheroes.features.list.data.remote.BiographyRemoteSource
 import com.ibrakor.superheroes.features.list.data.remote.SuperHeroesRemoteSource
 import com.ibrakor.superheroes.features.list.data.remote.WorkRemoteSource
 import com.ibrakor.superheroes.databinding.ActivityRecyclerSuperoHeroBinding
+import com.ibrakor.superheroes.features.detail.presentation.SuperHeroDetailActivity
 import com.ibrakor.superheroes.features.list.domain.GetSuperHeroesFeedUseCase
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 
@@ -59,6 +61,9 @@ class SuperHeroListMainActivity : AppCompatActivity() {
                 LinearLayoutManager.VERTICAL,
                 false
             )
+            superHeroAdapter.setEvent {
+                navigateToDetail(it)
+            }
             recyclerSuperHero.adapter=superHeroAdapter
         }
     }
@@ -103,6 +108,11 @@ class SuperHeroListMainActivity : AppCompatActivity() {
 
     private fun bindDataSuperHero(superHeroList: List<SuperHeroOutput>) {
         superHeroAdapter.submitList(superHeroList)
+    }
+    private fun navigateToDetail(heroId: Int){
+        val intent = Intent(this, SuperHeroDetailActivity::class.java)
+        intent.putExtra(SuperHeroViewHolder.SUPERHERO_ID_EXTRA, heroId)
+        startActivity(intent)
     }
 
     private fun setupBinding() {

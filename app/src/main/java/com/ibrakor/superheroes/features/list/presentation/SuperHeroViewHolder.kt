@@ -19,7 +19,7 @@ class SuperHeroViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
 
 
-    fun bind(model: SuperHeroOutput) {
+    fun bind(model: SuperHeroOutput, onClick: (Int) -> Unit) {
         binding = ViewSuperHeroItemBinding.bind(view)
 
         binding.apply {
@@ -28,9 +28,7 @@ class SuperHeroViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
             superheroName.text = model.superHero.name
             superheroWork.text = model.work.occupation
             view.setOnClickListener {
-                val intent = Intent(view.context, SuperHeroDetailActivity::class.java)
-                intent.putExtra(SUPERHERO_ID_EXTRA, model.superHero.id) // pasar id al activity sin pasarlo por constructor
-                view.context.startActivity(intent)
+                onClick.invoke(model.superHero.id)
             }
 
         }
