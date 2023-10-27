@@ -18,9 +18,10 @@ data class SuperHeroApiModel(
 fun SuperHeroApiModel.toModel(): SuperHero = SuperHero(this.id,this.name,this.images.toUrl(),this.conections.affiliation)
 
 data class BiographyApiModel(
-    @SerializedName("fullName") val fullName: String
+    @SerializedName("fullName") val fullName: String,
+    @SerializedName("alignment") val alignment: String
 )
-fun BiographyApiModel.toModel(): Biography = Biography(this.fullName)
+fun BiographyApiModel.toModel(): Biography = Biography(this.fullName,this.alignment)
 data class ImagesApiModel(
     @SerializedName("lg") val urlImage: String
 )

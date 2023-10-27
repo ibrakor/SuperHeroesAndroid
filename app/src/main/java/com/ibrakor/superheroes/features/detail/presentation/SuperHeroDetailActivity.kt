@@ -1,10 +1,13 @@
 package com.ibrakor.superheroes.features.detail.presentation
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.GridLayout.Alignment
 import androidx.lifecycle.Observer
 import com.ibrakor.avilaentapaspractica.app.serialization.GsonSerialization
 import com.ibrakor.ejercicioformulario02.app.extensions.setUrl
+import com.ibrakor.superheroes.app.extensions.setAlignmentColor
 import com.ibrakor.superheroes.databinding.ViewSuperHeroDetailBinding
 import com.ibrakor.superheroes.features.list.data.BiographyDataRepository
 import com.ibrakor.superheroes.features.list.data.SuperHeroesDataRepository
@@ -63,6 +66,8 @@ class SuperHeroDetailActivity() : AppCompatActivity() {
             superheroName.text=it.superHero.name
             superHeroFullName.text=it.biography.fullName
             superHeroConections.text=it.superHero.connections
+            superheroAlignment.text=it.biography.alignmente.uppercase()
+            superheroAlignment.setAlignmentColor()
         }
     }
 
@@ -70,4 +75,5 @@ class SuperHeroDetailActivity() : AppCompatActivity() {
         binding= ViewSuperHeroDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
+
 }
