@@ -20,7 +20,8 @@
             app:layout_constraintTop_toTopOf="parent">
         </ImageView>
         <TextView
-            tools:text="sssssssssss"
+
+            android:text="                       "
             android:layout_marginStart="@dimen/spacing"
             android:id="@+id/superhero_name"
             android:layout_width="wrap_content"
@@ -30,7 +31,7 @@
         </TextView>
         <TextView
             android:layout_marginTop="@dimen/spacing"
-            tools:text="sssssssssss"
+            android:text="                       "
             android:id="@+id/superhero_fullname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,8 +44,9 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/superhero_name"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:text="sadasdasdasdasd">
-        </TextView>
+            android:text="                                    ">
+
+    </TextView>
         <ImageView
             android:id="@+id/submit_arrow"
             android:layout_height="40dp"
