@@ -1,4 +1,4 @@
-package com.ibrakor.superheroes.data.remote
+package com.ibrakor.superheroes.data.api
 
 import com.ibrakor.superheroes.data.api.BiographyApiModel
 import com.ibrakor.superheroes.data.api.WorkApiModel
@@ -14,4 +14,7 @@ interface SuperHeroApiService {
 
     @GET("work/{superHeroId}.json")
     suspend fun getWorkApi(@Path("superHeroId") superHeroId: String): Response<WorkApiModel>
+
+    @GET("all.json")
+    suspend fun getSuperHero(): Response<List<SuperHeroApiModel>>
 }
