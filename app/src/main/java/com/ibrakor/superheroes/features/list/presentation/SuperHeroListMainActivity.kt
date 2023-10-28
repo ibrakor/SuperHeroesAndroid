@@ -97,7 +97,13 @@ class SuperHeroListMainActivity : AppCompatActivity() {
         }
         when (errorApp){
             ErrorApp.UnknownError -> binding.viewError.messageError.text=getString(R.string.label_unknown_error)
-            ErrorApp.NetworkError -> binding.viewError.messageError.text=getString(R.string.label_network_error)
+            ErrorApp.NetworkError -> showNetworkError()
+        }
+    }
+    private fun showNetworkError(){
+        binding.apply {
+            viewError.messageError.text=getString(R.string.label_network_error)
+            viewError.imageError.setImageResource(R.drawable.ic_no_wifi)
         }
     }
 
