@@ -89,7 +89,7 @@ class SuperHeroDetailActivity() : AppCompatActivity() {
             intelligenceValor.text=it.superHero.powerStats.intelligence
         }
         val images: MutableList<String> = mutableListOf()
-        images.add(it.superHero.images.xsImage)
+        images.add(it.superHero.images.lImage)
         images.add(it.superHero.images.sImage)
         images.add(it.superHero.images.mImage)
         images.add(it.superHero.images.lImage)

@@ -48,10 +48,12 @@ class SuperHeroListMainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setupBinding()
         setupView()
-        skeleton = binding.recyclerSuperHero.applySkeleton(R.layout.view_super_hero_item,8)
-
         setupObserver()
         viewModel.loadSuperHerosList()
+    }
+    private fun setupBinding() {
+        binding = ActivityRecyclerSuperoHeroBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 
     private fun setupView() {
@@ -65,6 +67,8 @@ class SuperHeroListMainActivity : AppCompatActivity() {
                 navigateToDetail(it)
             }
             recyclerSuperHero.adapter=superHeroAdapter
+            skeleton = recyclerSuperHero.applySkeleton(R.layout.view_super_hero_item,8)
+
         }
     }
 
@@ -115,8 +119,5 @@ class SuperHeroListMainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun setupBinding() {
-        binding = ActivityRecyclerSuperoHeroBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-    }
+
 }

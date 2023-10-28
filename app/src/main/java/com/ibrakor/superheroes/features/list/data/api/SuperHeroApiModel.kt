@@ -47,3 +47,6 @@ data class PowerStatsApiModel(
     @SerializedName("combat") val combat: String
 )
 fun PowerStatsApiModel.toModel(): PowerStats = PowerStats(this.intelligence, this.speed,this.combat)
+fun List<SuperHeroApiModel>.toModel(): List<SuperHero> {
+    return this.map { it.toModel() }
+}

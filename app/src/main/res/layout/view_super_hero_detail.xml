@@ -138,6 +138,8 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.recyclerview.widget.RecyclerView
+            app:layout_constraintStart_toStartOf="@id/superhero_name"
+            app:layout_constraintEnd_toEndOf="@id/superhero_alignment"
             android:id="@+id/details_images_recycler_view"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"

@@ -3,15 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_super_hero"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/view_super_hero_item">
-
     </androidx.recyclerview.widget.RecyclerView>
-
     <include
         layout="@layout/view_error"
         android:id="@+id/view_error" />

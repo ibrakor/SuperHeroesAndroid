@@ -27,10 +27,10 @@ class SuperHeroViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
             superheroFullname.text = model.biography.fullName
             superheroName.text = model.superHero.name
             superheroWork.text = model.work.occupation
-            view.setOnClickListener {
+            submitArrow.setOnClickListener{
                 onClick.invoke(model.superHero.id)
-            }
 
+            }
         }
     }
 

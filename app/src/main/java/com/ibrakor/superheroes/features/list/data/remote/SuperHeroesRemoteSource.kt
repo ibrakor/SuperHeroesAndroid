@@ -4,8 +4,8 @@ import com.ibrakor.ejercicioformulario02.app.Either
 import com.ibrakor.ejercicioformulario02.app.ErrorApp
 import com.ibrakor.ejercicioformulario02.app.left
 import com.ibrakor.ejercicioformulario02.app.right
-import com.ibrakor.superheroes.app.extensions.toModel
 import com.ibrakor.superheroes.features.list.data.api.SuperHeroApiClient
+import com.ibrakor.superheroes.features.list.data.api.toModel
 import com.ibrakor.superheroes.features.list.domain.SuperHero
 
 class SuperHeroesRemoteSource {
