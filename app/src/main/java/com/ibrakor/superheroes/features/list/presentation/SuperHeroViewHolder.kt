@@ -29,7 +29,7 @@ class SuperHeroViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
             superheroWork.text = model.work.occupation
             submitArrow.setOnClickListener{
                 onClick.invoke(model.superHero.id)
-
+                
             }
         }
     }
