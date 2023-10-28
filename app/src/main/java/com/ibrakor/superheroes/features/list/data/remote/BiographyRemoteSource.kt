@@ -8,6 +8,9 @@ import com.ibrakor.superheroes.features.list.data.api.SuperHeroApiClient
 import com.ibrakor.superheroes.features.list.data.api.toModel
 import com.ibrakor.superheroes.features.list.domain.Biography
 import com.ibrakor.superheroes.features.list.domain.Work
+import java.net.ConnectException
+import java.net.UnknownHostException
+import java.util.concurrent.TimeoutException
 
 class BiographyRemoteSource {
 
@@ -21,9 +24,15 @@ class BiographyRemoteSource {
         }
             return ErrorApp.NetworkError.left()
 
-        } catch (ex: Exception){
+        } catch (ex: TimeoutException){
             return ErrorApp.NetworkError.left()
-
+        } catch (ex: UnknownHostException){
+            return ErrorApp.NetworkError.left()
+        } catch (ex: ConnectException) {
+            return ErrorApp.NetworkError.left()
+        } catch (ex: Exception){
+            return ErrorApp.UnknownError.left()
         }
+
     }
 }
