@@ -22,6 +22,25 @@ class SuperHeroesLocalSource(private val context: Context, private val jsonSeria
             ErrorApp.UnknownError.left()
         }
     }
+    fun getSuperHeroById(id: Int): Either<ErrorApp, SuperHero> {
+        return try {
+            val jsonHeroes = sharedPreferences.all as Map<String, String>
+            val heroJson = jsonHeroes.values.firstOrNull { json ->
+                val superHero = jsonSerialization.fromJson(json, SuperHero::class.java)
+                superHero.id == id
+            }
+
+            if (heroJson != null) {
+                val hero = jsonSerialization.fromJson(heroJson, SuperHero::class.java)
+                hero.right()
+            } else {
+                ErrorApp.UnknownError.left()
+            }
+        } catch (ex: Exception) {
+            ErrorApp.UnknownError.left()
+        }
+    }
+
     fun saveSuperHeroes(models: List<SuperHero>): Either<ErrorApp, Boolean>{
         try {
             with(sharedPreferences.edit()){

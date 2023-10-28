@@ -13,21 +13,22 @@ class SuperHeroesDataRepository(
     private val remoteDataSource: SuperHeroesRemoteSource,
     private val localDataSource: SuperHeroesLocalSource
 ) : SuperHeroRepository {
-
     override suspend fun obtainSuperHero(heroId: Int): Either<ErrorApp, SuperHero> {
-        for (it in obtainSuperHeros().get()) {
-            if (it.id == heroId) {
-                return it.right()
+        val localResult = localDataSource.getSuperHeroById(heroId)
+        localResult.mapLeft {
+            remoteDataSource.getSuperHeroes().map {
+                it.forEach {
+                    if (it.id==heroId){
+                        return it.right()
+                    }
+                }
             }
         }
-        return ErrorApp.UnknownError.left()
+        return localResult
     }
-
-
-
     override suspend fun obtainSuperHeros(): Either<ErrorApp, List<SuperHero>> {
         val localResult = localDataSource.getSuperHeroes()
-        if (localResult.get().size == 0) {
+        if (localResult.get().isEmpty()) {
             return remoteDataSource.getSuperHeroes().map {
                 localDataSource.saveSuperHeroes(it)
                 it
