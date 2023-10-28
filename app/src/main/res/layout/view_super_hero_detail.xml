@@ -147,7 +147,8 @@
             app:layout_constraintTop_toBottomOf="@id/superhero_powerstats">
 
         </androidx.recyclerview.widget.RecyclerView>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <include
+        layout="@layout/view_error"
+        android:id="@+id/view_error" />
 </FrameLayout>

@@ -7,7 +7,10 @@ import android.widget.GridLayout.Alignment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ibrakor.avilaentapaspractica.app.serialization.GsonSerialization
+import com.ibrakor.ejercicioformulario02.app.ErrorApp
 import com.ibrakor.ejercicioformulario02.app.extensions.setUrl
+import com.ibrakor.ejercicioformulario02.app.extensions.visible
+import com.ibrakor.superheroes.R
 import com.ibrakor.superheroes.app.extensions.setAlignmentColor
 import com.ibrakor.superheroes.databinding.ViewSuperHeroDetailBinding
 import com.ibrakor.superheroes.features.list.data.BiographyDataRepository
@@ -72,8 +75,27 @@ class SuperHeroDetailActivity() : AppCompatActivity() {
             it.superHero?.let {
                 bindDataDetail(it)
             }
+            it.errorApp?.let {
+                showError(it)
+            }
         }
        viewModel.uiState.observe(this,observer)
+    }
+
+    private fun showError(errorApp: ErrorApp) {
+        binding.apply {
+            viewError.layoutError.visible()
+        }
+        when (errorApp){
+            ErrorApp.UnknownError -> binding.viewError.messageError.text=getString(R.string.label_unknown_error)
+            ErrorApp.NetworkError -> showNetworkError()
+        }
+    }
+    private fun showNetworkError(){
+        binding.apply {
+            viewError.messageError.text=getString(R.string.label_network_error)
+            viewError.imageError.setImageResource(R.drawable.ic_no_wifi)
+        }
     }
 
     private fun bindDataDetail(it: SuperHeroOutput) {
