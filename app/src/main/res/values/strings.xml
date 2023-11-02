@@ -5,4 +5,5 @@
     <string name="label_intelligence">Inteligencia</string>
     <string name="label_speed">Velocidad</string>
     <string name="label_fight">Combate</string>
+    <string name="main_title">SuperHeroes</string>
 </resources>

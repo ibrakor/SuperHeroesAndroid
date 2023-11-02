@@ -21,6 +21,7 @@ import com.ibrakor.superheroes.features.list.data.remote.BiographyRemoteSource
 import com.ibrakor.superheroes.features.list.data.remote.SuperHeroesRemoteSource
 import com.ibrakor.superheroes.features.list.data.remote.WorkRemoteSource
 import com.ibrakor.superheroes.databinding.ActivityRecyclerSuperoHeroBinding
+import com.ibrakor.superheroes.databinding.ActivityRecyclerToolbarSuperoHeroBinding
 import com.ibrakor.superheroes.features.detail.presentation.SuperHeroDetailActivity
 import com.ibrakor.superheroes.features.list.domain.GetSuperHeroesFeedUseCase
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
@@ -42,7 +43,7 @@ class SuperHeroListMainActivity : AppCompatActivity() {
     private val superHeroAdapter = SuperHeroAdapter()
     private lateinit var skeleton: Skeleton
 
-    private lateinit var binding: ActivityRecyclerSuperoHeroBinding
+    private lateinit var binding: ActivityRecyclerToolbarSuperoHeroBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +53,7 @@ class SuperHeroListMainActivity : AppCompatActivity() {
         viewModel.loadSuperHerosList()
     }
     private fun setupBinding() {
-        binding = ActivityRecyclerSuperoHeroBinding.inflate(layoutInflater)
+        binding = ActivityRecyclerToolbarSuperoHeroBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 
