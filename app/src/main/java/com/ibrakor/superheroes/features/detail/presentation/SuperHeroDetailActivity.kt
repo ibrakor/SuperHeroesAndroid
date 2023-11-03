@@ -109,6 +109,10 @@ class SuperHeroDetailActivity() : AppCompatActivity() {
             speedValor.text=it.superHero.powerStats.speed
             fighValor.text=it.superHero.powerStats.combat
             intelligenceValor.text=it.superHero.powerStats.intelligence
+            topAppBar.setNavigationOnClickListener {
+                finish()
+            }
+
         }
         val images: MutableList<String> = mutableListOf()
         images.add(it.superHero.images.lImage)
