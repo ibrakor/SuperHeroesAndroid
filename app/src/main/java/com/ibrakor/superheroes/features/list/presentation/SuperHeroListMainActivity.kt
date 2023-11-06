@@ -1,5 +1,6 @@
 package com.ibrakor.superheroes.features.list.presentation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -20,12 +21,12 @@ import com.ibrakor.superheroes.features.list.data.remote.BiographyRemoteSource
 import com.ibrakor.superheroes.features.list.data.remote.SuperHeroesRemoteSource
 import com.ibrakor.superheroes.features.list.data.remote.WorkRemoteSource
 import com.ibrakor.superheroes.databinding.ActivityRecyclerSuperoHeroBinding
-import com.ibrakor.superheroes.features.list.domain.GetSuperHeroUseCase
+import com.ibrakor.superheroes.features.detail.presentation.SuperHeroDetailActivity
 import com.ibrakor.superheroes.features.list.domain.GetSuperHeroesFeedUseCase
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 
-class SuperHeroMainActivity : AppCompatActivity() {
-    private val viewModel: SuperHeroViewModel by lazy {
+class SuperHeroListMainActivity : AppCompatActivity() {
+    private val viewModel: SuperHeroListViewModel by lazy {
         val superHeroRepository = SuperHeroesDataRepository(
             SuperHeroesRemoteSource(),
             SuperHeroesLocalSource(this,GsonSerialization())
@@ -35,7 +36,7 @@ class SuperHeroMainActivity : AppCompatActivity() {
             BiographyRemoteSource(),
             BiographyLocalSource(this,GsonSerialization())
         )
-        SuperHeroViewModel(GetSuperHeroUseCase(superHeroRepository,workRepository,biographyRepository), GetSuperHeroesFeedUseCase(superHeroRepository, workRepository,biographyRepository))
+        SuperHeroListViewModel( GetSuperHeroesFeedUseCase(superHeroRepository, workRepository,biographyRepository))
     }
 
     private val superHeroAdapter = SuperHeroAdapter()
@@ -47,25 +48,32 @@ class SuperHeroMainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setupBinding()
         setupView()
-        skeleton = binding.recyclerSuperHero.applySkeleton(R.layout.view_super_hero_item,8)
-
         setupObserver()
         viewModel.loadSuperHerosList()
+    }
+    private fun setupBinding() {
+        binding = ActivityRecyclerSuperoHeroBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 
     private fun setupView() {
         binding.apply {
             recyclerSuperHero.layoutManager=LinearLayoutManager(
-                this@SuperHeroMainActivity,
+                this@SuperHeroListMainActivity,
                 LinearLayoutManager.VERTICAL,
                 false
             )
+            superHeroAdapter.setEvent {
+                navigateToDetail(it)
+            }
             recyclerSuperHero.adapter=superHeroAdapter
+            skeleton = recyclerSuperHero.applySkeleton(R.layout.view_super_hero_item,8)
+
         }
     }
 
     private fun setupObserver() {
-        val observer = Observer<SuperHeroViewModel.UiState>{
+        val observer = Observer<SuperHeroListViewModel.UiState>{
 
             if (it.isLoading){
                 showLoading()
@@ -89,7 +97,13 @@ class SuperHeroMainActivity : AppCompatActivity() {
         }
         when (errorApp){
             ErrorApp.UnknownError -> binding.viewError.messageError.text=getString(R.string.label_unknown_error)
-            ErrorApp.NetworkError -> binding.viewError.messageError.text=getString(R.string.label_network_error)
+            ErrorApp.NetworkError -> showNetworkError()
+        }
+    }
+    private fun showNetworkError(){
+        binding.apply {
+            viewError.messageError.text=getString(R.string.label_network_error)
+            viewError.imageError.setImageResource(R.drawable.ic_no_wifi)
         }
     }
 
@@ -105,9 +119,11 @@ class SuperHeroMainActivity : AppCompatActivity() {
     private fun bindDataSuperHero(superHeroList: List<SuperHeroOutput>) {
         superHeroAdapter.submitList(superHeroList)
     }
-
-    private fun setupBinding() {
-        binding = ActivityRecyclerSuperoHeroBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    private fun navigateToDetail(heroId: Int){
+        val intent = Intent(this, SuperHeroDetailActivity::class.java)
+        intent.putExtra(SuperHeroViewHolder.SUPERHERO_ID_EXTRA, heroId)
+        startActivity(intent)
     }
+
+
 }

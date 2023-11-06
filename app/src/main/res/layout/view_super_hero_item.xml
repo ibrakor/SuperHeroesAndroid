@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".features.list.presentation.SuperHeroMainActivity"
+    tools:context=".features.list.presentation.SuperHeroListMainActivity"
     android:padding="10dp">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
         <ImageView
-
             android:scaleType="centerCrop"
             android:id="@+id/superhero_image"
             android:layout_width="@dimen/width_image_list"
@@ -19,28 +18,25 @@
             tools:src="@tools:sample/avatars"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
         </ImageView>
         <TextView
 
-            tools:text="sssssssssss"
+            android:text="                       "
             android:layout_marginStart="@dimen/spacing"
             android:id="@+id/superhero_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/superhero_image"
             app:layout_constraintTop_toTopOf="@+id/superhero_image">
-
         </TextView>
         <TextView
             android:layout_marginTop="@dimen/spacing"
-            tools:text="sssssssssss"
+            android:text="                       "
             android:id="@+id/superhero_fullname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/superhero_name"
             app:layout_constraintTop_toBottomOf="@id/superhero_name">
-
         </TextView>
         <TextView
             android:id="@+id/superhero_work"
@@ -48,11 +44,17 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/superhero_name"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:text="sadasdasdasdasd">
+            android:text="                                    ">
 
-        </TextView>
+    </TextView>
+        <ImageView
+            android:id="@+id/submit_arrow"
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_right_arrow">
+        </ImageView>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
