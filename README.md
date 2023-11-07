@@ -8,6 +8,7 @@ Ejercicio que muestra una lista de Superheroes y al hacer click en uno de ellos 
 
 ## Conceptos
 - Activity
+- Fragment
 - ViewModel
 - ViewHolder
 - Adapter
