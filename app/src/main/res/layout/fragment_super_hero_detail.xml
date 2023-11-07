@@ -8,20 +8,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        <include android:id="@+id/toolbar"
+            layout="@layout/view_toolbar">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
-            app:title="@string/description_title"
-
-            app:navigationIcon="@drawable/ic_left_arrow" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+        </include>
 
     <!-- Note: A RecyclerView can also be used -->
     <androidx.core.widget.NestedScrollView
