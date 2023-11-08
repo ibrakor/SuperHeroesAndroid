@@ -79,11 +79,13 @@ class SuperHeroListFragment : Fragment() {
                     false
                 )
                 adapter = superHeroAdapter
-                superHeroAdapter.onClick = {
+                superHeroAdapter.setEvent  {
                     findNavController().navigate(
                         SuperHeroListFragmentDirections.actionFromFragmentListToFragmentDetail(it.toString())
                     )
                 }
+                adapter = superHeroAdapter
+
 
             }
 

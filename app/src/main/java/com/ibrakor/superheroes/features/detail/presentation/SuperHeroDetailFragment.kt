@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ibrakor.avilaentapaspractica.app.serialization.GsonSerialization
 import com.ibrakor.ejercicioformulario02.app.extensions.setUrl
 import com.ibrakor.superheroes.app.extensions.setAlignmentColor
@@ -24,14 +25,15 @@ import com.ibrakor.superheroes.features.list.data.remote.SuperHeroesRemoteSource
 import com.ibrakor.superheroes.features.list.data.remote.WorkRemoteSource
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 
-class SuperHeroDetailFragment: Fragment() {
+class SuperHeroDetailFragment : Fragment() {
     private val viewModel: SuperHeroDetailViewModel by lazy {
         val superHeroRepository = SuperHeroesDataRepository(
             SuperHeroesRemoteSource(),
             SuperHeroesLocalSource((activity as MainActivity), GsonSerialization())
         )
         val workRepository = WorkDataRepository(
-            WorkRemoteSource(), WorkLocalSource((activity as MainActivity),
+            WorkRemoteSource(), WorkLocalSource(
+                (activity as MainActivity),
                 GsonSerialization()
             )
         )
@@ -39,13 +41,19 @@ class SuperHeroDetailFragment: Fragment() {
             BiographyRemoteSource(),
             BiographyLocalSource((activity as MainActivity), GsonSerialization())
         )
-        SuperHeroDetailViewModel(GetSuperHeroUseCase(superHeroRepository,workRepository,biographyRepository))
+        SuperHeroDetailViewModel(
+            GetSuperHeroUseCase(
+                superHeroRepository,
+                workRepository,
+                biographyRepository
+            )
+        )
     }
 
     private var _binding: FragmentSuperHeroDetailBinding? = null
     private val binding get() = _binding!!
 
-    val args : SuperHeroDetailFragmentArgs by navArgs()
+    val args: SuperHeroDetailFragmentArgs by navArgs()
 
     private val superHeroDetailAdapter = SuperHeroDetailAdapter()
     override fun onCreateView(
@@ -60,37 +68,45 @@ class SuperHeroDetailFragment: Fragment() {
 
     private fun setupView() {
         binding.apply {
+            detailsImagesRecyclerView.layoutManager = LinearLayoutManager(
+                this@SuperHeroDetailFragment.context,
+                LinearLayoutManager.HORIZONTAL,
+                false
+            )
+            detailsImagesRecyclerView.adapter=superHeroDetailAdapter
 
         }
     }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?){
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObservers()
         viewModel.loadSuperHeroDetail(args.superHeroId.toInt())
     }
 
     private fun setupObservers() {
-        val observer = Observer<SuperHeroDetailViewModel.UiState>{
+        val observer = Observer<SuperHeroDetailViewModel.UiState> {
             it.superHero?.let {
-               bindDataDetail(it)
+                bindDataDetail(it)
             }
             it.errorApp?.let {
                 //showError(it)
             }
         }
-        viewModel.uiState.observe(viewLifecycleOwner,observer)
+        viewModel.uiState.observe(viewLifecycleOwner, observer)
     }
+
     private fun bindDataDetail(it: SuperHeroOutput) {
         binding.apply {
             imageDetail.setUrl(it.superHero.images.lImage)
-            superheroName.text=it.superHero.name
-            superHeroFullName.text=it.biography.fullName
-            superHeroConections.text=it.superHero.connections
-            superheroAlignment.text=it.biography.alignmente.uppercase()
+            superheroName.text = it.superHero.name
+            superHeroFullName.text = it.biography.fullName
+            superHeroConections.text = it.superHero.connections
+            superheroAlignment.text = it.biography.alignmente.uppercase()
             superheroAlignment.setAlignmentColor()
-            speedValor.text=it.superHero.powerStats.speed
-            fighValor.text=it.superHero.powerStats.combat
-            intelligenceValor.text=it.superHero.powerStats.intelligence
+            speedValor.text = it.superHero.powerStats.speed
+            fighValor.text = it.superHero.powerStats.combat
+            intelligenceValor.text = it.superHero.powerStats.intelligence
         }
         val images: MutableList<String> = mutableListOf()
         images.add(it.superHero.images.lImage)
@@ -108,6 +124,7 @@ class SuperHeroDetailFragment: Fragment() {
                 }
             }
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
