@@ -79,21 +79,28 @@ class SuperHeroListFragment : Fragment() {
                     false
                 )
                 adapter = superHeroAdapter
+                superHeroAdapter.onClick = {
+                    findNavController().navigate(
+                        SuperHeroListFragmentDirections.actionFromFragmentListToFragmentDetail(it.toString())
+                    )
+                }
 
             }
+
         }
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
-        skeleton=binding.recyclerSuperHero.applySkeleton(R.layout.view_super_hero_item,8)
         viewModel.loadSuperHerosList()
+        skeleton=binding.recyclerSuperHero.applySkeleton(R.layout.view_super_hero_item,8)
+
     }
     private fun setupObserver() {
         val observer = Observer<SuperHeroListViewModel.UiState> {
 
             if (it.isLoading) {
-                showLoading()
+               showLoading()
 
             } else {
 

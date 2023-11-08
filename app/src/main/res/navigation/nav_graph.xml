@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@layout/fragment_super_heroes_list">
 
     <fragment
         android:id="@+id/fragment_super_heroes_list"
-        android:name="com.ibrakor.superheroes.features.list.presentation.SuperHeroListFragment">
+        android:name="com.ibrakor.superheroes.features.list.presentation.SuperHeroListFragment"
+        tools:layout="@layout/fragment_super_heroes_list">
 
 
         <action
@@ -15,7 +17,8 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_detail"
-        android:name="com.ibrakor.superheroes.features.detail.presentation.SuperHeroDetailFragment">
+        android:name="com.ibrakor.superheroes.features.detail.presentation.SuperHeroDetailFragment"
+        tools:layout="@layout/fragment_super_hero_detail">
         <argument
             android:name="superHeroId"
             app:argType="string"
