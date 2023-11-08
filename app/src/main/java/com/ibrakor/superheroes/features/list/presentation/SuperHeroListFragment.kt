@@ -72,6 +72,9 @@ class SuperHeroListFragment : Fragment() {
 
     private fun setupView() {
         binding.apply {
+            layoutToolbar.toolbar.apply {
+                title = getString(R.string.app_name)
+            }
             recyclerSuperHero.apply {
                 layoutManager = LinearLayoutManager(
                     this@SuperHeroListFragment.context,

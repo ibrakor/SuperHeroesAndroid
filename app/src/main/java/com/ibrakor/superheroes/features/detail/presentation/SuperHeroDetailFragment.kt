@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ibrakor.avilaentapaspractica.app.serialization.GsonSerialization
@@ -67,7 +68,12 @@ class SuperHeroDetailFragment : Fragment() {
     }
 
     private fun setupView() {
+
         binding.apply {
+            detailToolbar.setNavigationOnClickListener {
+                findNavController().navigateUp()
+            }
+
             detailsImagesRecyclerView.layoutManager = LinearLayoutManager(
                 this@SuperHeroDetailFragment.context,
                 LinearLayoutManager.HORIZONTAL,
