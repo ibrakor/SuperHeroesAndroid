@@ -37,7 +37,6 @@ class SuperHeroDetailFragment: Fragment() {
     private var _binding: FragmentSuperHeroDetailBinding? = null
     private val binding get() = _binding!!
 
-    val args: SuperHeroDetailFragmentArgs by navArgs()
-
+    val args = SuperHeroDetailFragmentArgs by navArgs()
 
 }

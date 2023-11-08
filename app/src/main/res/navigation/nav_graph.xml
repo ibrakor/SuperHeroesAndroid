@@ -11,16 +11,19 @@
 
         <action
             android:id="@+id/action_from_fragment_list_to_fragment_detail"
-            app:destination="@+id/fragment_detail">
-        </action>
+            app:destination="@+id/fragment_detail" />
     </fragment>
     <fragment
         android:id="@+id/fragment_detail"
-        android:name="com.ibrakor.superheroes.features.detail.presentation.SuperHeroDetailFragment" />
+        android:name="com.ibrakor.superheroes.features.detail.presentation.SuperHeroDetailFragment">
         <argument
             android:name="superHeroId"
             app:argType="string"
             app:nullable="false">
 
         </argument>
-</navigation>
+    </fragment>
+
+
+
+    </navigation>
