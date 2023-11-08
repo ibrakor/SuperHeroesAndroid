@@ -9,6 +9,7 @@ import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 class SuperHeroAdapter: ListAdapter<SuperHeroOutput, SuperHeroViewHolder>(SuperHeroDiffUtil()) {
 
 
+    //CAMBIAR A LATEINIT
     lateinit var onClick:(heroId: Int) -> Unit
     fun setEvent(onClick: (Int) -> Unit){
         this.onClick = onClick

@@ -9,8 +9,15 @@
     <androidx.fragment.app.FragmentContainerView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:id="fragment_container"
-        android:name="com.ibrakor"
+        android:id="@+id/fragment_container"
+        android:name="com.ibrakor.superheroes.features.list.presentation.SuperHeroListFragment"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+    </androidx.fragment.app.FragmentContainerView>
 
     <include
         layout="@layout/view_error"
