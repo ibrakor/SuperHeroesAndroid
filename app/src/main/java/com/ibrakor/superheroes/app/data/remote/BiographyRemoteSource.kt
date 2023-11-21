@@ -5,6 +5,7 @@ import com.ibrakor.ejercicioformulario02.app.ErrorApp
 import com.ibrakor.ejercicioformulario02.app.left
 import com.ibrakor.ejercicioformulario02.app.right
 import com.ibrakor.superheroes.app.data.api.SuperHeroApiClient
+import com.ibrakor.superheroes.app.data.api.SuperHeroApiService
 import com.ibrakor.superheroes.app.data.api.toModel
 import com.ibrakor.superheroes.features.list.domain.Biography
 import com.ibrakor.superheroes.features.list.domain.Work
@@ -13,7 +14,7 @@ import java.net.UnknownHostException
 import java.util.concurrent.TimeoutException
 import javax.inject.Inject
 
-class BiographyRemoteSource @Inject constructor(private val apiClient: SuperHeroApiClient){
+class BiographyRemoteSource @Inject constructor(private val apiService: SuperHeroApiService){
 
 
     suspend fun getBiography(heroId: String): Either<ErrorApp, Biography>{

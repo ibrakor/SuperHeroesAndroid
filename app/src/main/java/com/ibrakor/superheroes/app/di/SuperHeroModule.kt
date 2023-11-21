@@ -14,4 +14,5 @@ abstract class SuperHeroModule {
 
     @Binds
     abstract fun bindBiographyDataRepository(biographyDataRepository: BiographyDataRepository): BiographyRepository
+
 }
