@@ -1,4 +1,4 @@
-package com.ibrakor.superheroes.features.list.data.local
+package com.ibrakor.superheroes.app.data.local
 
 import android.content.Context
 import com.ibrakor.avilaentapaspractica.app.serialization.JsonSerialization

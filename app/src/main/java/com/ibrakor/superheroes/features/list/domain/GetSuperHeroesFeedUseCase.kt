@@ -4,8 +4,9 @@ import com.ibrakor.ejercicioformulario02.app.Either
 import com.ibrakor.ejercicioformulario02.app.ErrorApp
 import com.ibrakor.ejercicioformulario02.app.left
 import com.ibrakor.ejercicioformulario02.app.right
+import javax.inject.Inject
 
-class GetSuperHeroesFeedUseCase(private val superHeroRepository: SuperHeroRepository,
+class GetSuperHeroesFeedUseCase @Inject constructor(private val superHeroRepository: SuperHeroRepository,
                                 private val workRepository: WorkRepository,
                                 private val biographyRepository: BiographyRepository
 ) {

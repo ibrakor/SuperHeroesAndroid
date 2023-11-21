@@ -1,4 +1,4 @@
-package com.ibrakor.superheroes.features.list.data.api
+package com.ibrakor.superheroes.app.data.api
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

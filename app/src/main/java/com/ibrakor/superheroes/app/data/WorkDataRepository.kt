@@ -1,9 +1,9 @@
-package com.ibrakor.superheroes.features.list.data
+package com.ibrakor.superheroes.app.data
 
 import com.ibrakor.ejercicioformulario02.app.Either
 import com.ibrakor.ejercicioformulario02.app.ErrorApp
-import com.ibrakor.superheroes.features.list.data.local.WorkLocalSource
-import com.ibrakor.superheroes.features.list.data.remote.WorkRemoteSource
+import com.ibrakor.superheroes.app.data.local.WorkLocalSource
+import com.ibrakor.superheroes.app.data.remote.WorkRemoteSource
 import com.ibrakor.superheroes.features.list.domain.Work
 import com.ibrakor.superheroes.features.list.domain.WorkRepository
 

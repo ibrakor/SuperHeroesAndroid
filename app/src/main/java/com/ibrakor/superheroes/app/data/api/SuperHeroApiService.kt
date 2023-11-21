@@ -1,7 +1,7 @@
-package com.ibrakor.superheroes.features.list.data.api
+package com.ibrakor.superheroes.app.data.api
 
-import com.ibrakor.superheroes.features.list.data.api.BiographyApiModel
-import com.ibrakor.superheroes.features.list.data.api.WorkApiModel
+import com.ibrakor.superheroes.app.data.api.BiographyApiModel
+import com.ibrakor.superheroes.app.data.api.WorkApiModel
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

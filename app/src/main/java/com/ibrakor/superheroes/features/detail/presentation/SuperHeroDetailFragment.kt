@@ -15,15 +15,15 @@ import com.ibrakor.superheroes.app.extensions.setAlignmentColor
 import com.ibrakor.superheroes.databinding.FragmentSuperHeroDetailBinding
 import com.ibrakor.superheroes.features.MainActivity
 import com.ibrakor.superheroes.features.detail.domain.GetSuperHeroUseCase
-import com.ibrakor.superheroes.features.list.data.BiographyDataRepository
-import com.ibrakor.superheroes.features.list.data.SuperHeroesDataRepository
-import com.ibrakor.superheroes.features.list.data.WorkDataRepository
-import com.ibrakor.superheroes.features.list.data.local.BiographyLocalSource
-import com.ibrakor.superheroes.features.list.data.local.SuperHeroesLocalSource
-import com.ibrakor.superheroes.features.list.data.local.WorkLocalSource
-import com.ibrakor.superheroes.features.list.data.remote.BiographyRemoteSource
-import com.ibrakor.superheroes.features.list.data.remote.SuperHeroesRemoteSource
-import com.ibrakor.superheroes.features.list.data.remote.WorkRemoteSource
+import com.ibrakor.superheroes.app.data.BiographyDataRepository
+import com.ibrakor.superheroes.app.data.SuperHeroesDataRepository
+import com.ibrakor.superheroes.app.data.WorkDataRepository
+import com.ibrakor.superheroes.app.data.local.BiographyLocalSource
+import com.ibrakor.superheroes.app.data.local.SuperHeroesLocalSource
+import com.ibrakor.superheroes.app.data.local.WorkLocalSource
+import com.ibrakor.superheroes.app.data.remote.BiographyRemoteSource
+import com.ibrakor.superheroes.app.data.remote.SuperHeroesRemoteSource
+import com.ibrakor.superheroes.app.data.remote.WorkRemoteSource
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 
 class SuperHeroDetailFragment : Fragment() {
