@@ -19,7 +19,7 @@ class SuperHeroesRemoteSource @Inject constructor(private val apiService: SuperH
         return apiCall {
             apiService.getSuperHero()
         }.map {
-            it.toModel()
+            it.subList(0,18).toModel()
         }
     }
 }

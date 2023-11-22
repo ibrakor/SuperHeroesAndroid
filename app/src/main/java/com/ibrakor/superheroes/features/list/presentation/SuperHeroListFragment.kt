@@ -72,14 +72,13 @@ class SuperHeroListFragment : Fragment() {
 
 
             }
-
+            skeleton=recyclerSuperHero.applySkeleton(R.layout.view_super_hero_item,8)
         }
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
         viewModel.loadSuperHerosList()
-        skeleton=binding.recyclerSuperHero.applySkeleton(R.layout.view_super_hero_item,8)
 
     }
     private fun setupObserver() {
