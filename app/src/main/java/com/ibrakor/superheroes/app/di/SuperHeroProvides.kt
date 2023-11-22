@@ -1,6 +1,6 @@
 package com.ibrakor.superheroes.app.di
 
-import com.ibrakor.superheroes.app.data.api.SuperHeroApiService
+import com.ibrakor.superheroes.app.data.remote.api.SuperHeroApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,6 +13,6 @@ import retrofit2.create
 class SuperHeroProvides {
 
     @Provides
-    fun provideApiService(retrofit: Retrofit) =
+    fun provideApiService(retrofit: Retrofit): SuperHeroApiService =
         retrofit.create(SuperHeroApiService::class.java)
 }

@@ -6,8 +6,9 @@ import com.ibrakor.superheroes.app.data.local.WorkLocalSource
 import com.ibrakor.superheroes.app.data.remote.WorkRemoteSource
 import com.ibrakor.superheroes.features.list.domain.Work
 import com.ibrakor.superheroes.features.list.domain.WorkRepository
+import javax.inject.Inject
 
-class WorkDataRepository(
+class WorkDataRepository @Inject constructor(
     private val remoteSource: WorkRemoteSource,
     private val localSource: WorkLocalSource
 ): WorkRepository {

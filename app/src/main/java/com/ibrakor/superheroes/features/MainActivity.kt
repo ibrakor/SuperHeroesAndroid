@@ -19,11 +19,4 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
-    fun changeFragment(fragment: Fragment){
-        supportFragmentManager.commit {
-            replace(R.id.fragment_container, fragment)
-            setReorderingAllowed(true)
-            addToBackStack(null)
-        }
-    }
 }

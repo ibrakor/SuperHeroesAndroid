@@ -1,7 +1,7 @@
-package com.ibrakor.superheroes.app.data.api
+package com.ibrakor.superheroes.app.data.remote.api
 
-import com.ibrakor.superheroes.app.data.api.BiographyApiModel
-import com.ibrakor.superheroes.app.data.api.WorkApiModel
+import com.ibrakor.superheroes.app.data.remote.api.BiographyApiModel
+import com.ibrakor.superheroes.app.data.remote.api.WorkApiModel
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

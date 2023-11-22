@@ -8,8 +8,9 @@ import com.ibrakor.superheroes.app.data.local.SuperHeroesLocalSource
 import com.ibrakor.superheroes.app.data.remote.SuperHeroesRemoteSource
 import com.ibrakor.superheroes.features.list.domain.SuperHero
 import com.ibrakor.superheroes.features.list.domain.SuperHeroRepository
+import javax.inject.Inject
 
-class SuperHeroesDataRepository(
+class SuperHeroesDataRepository  @Inject constructor(
     private val remoteDataSource: SuperHeroesRemoteSource,
     private val localDataSource: SuperHeroesLocalSource
 ) : SuperHeroRepository {

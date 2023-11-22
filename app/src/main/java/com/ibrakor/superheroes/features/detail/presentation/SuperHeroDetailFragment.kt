@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -25,31 +26,11 @@ import com.ibrakor.superheroes.app.data.remote.BiographyRemoteSource
 import com.ibrakor.superheroes.app.data.remote.SuperHeroesRemoteSource
 import com.ibrakor.superheroes.app.data.remote.WorkRemoteSource
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SuperHeroDetailFragment : Fragment() {
-    private val viewModel: SuperHeroDetailViewModel by lazy {
-        val superHeroRepository = SuperHeroesDataRepository(
-            SuperHeroesRemoteSource(),
-            SuperHeroesLocalSource((activity as MainActivity), GsonSerialization())
-        )
-        val workRepository = WorkDataRepository(
-            WorkRemoteSource(), WorkLocalSource(
-                (activity as MainActivity),
-                GsonSerialization()
-            )
-        )
-        val biographyRepository = BiographyDataRepository(
-            BiographyRemoteSource(),
-            BiographyLocalSource((activity as MainActivity), GsonSerialization())
-        )
-        SuperHeroDetailViewModel(
-            GetSuperHeroUseCase(
-                superHeroRepository,
-                workRepository,
-                biographyRepository
-            )
-        )
-    }
+    private val viewModel by viewModels<SuperHeroDetailViewModel>()
 
     private var _binding: FragmentSuperHeroDetailBinding? = null
     private val binding get() = _binding!!
