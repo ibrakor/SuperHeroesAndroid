@@ -10,6 +10,7 @@ Ejercicio que muestra una lista de Superheroes y al hacer click en uno de ellos 
 - Activity
 - Fragment
 - Navigation component
+- Inyeccion de dependecias (Hilt)
 - ViewModel
 - ViewHolder
 - Adapter
