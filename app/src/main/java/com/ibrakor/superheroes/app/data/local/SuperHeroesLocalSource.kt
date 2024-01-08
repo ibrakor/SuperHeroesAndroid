@@ -1,4 +1,4 @@
-package com.ibrakor.superheroes.features.list.data.local
+package com.ibrakor.superheroes.app.data.local
 
 import android.content.Context
 import com.ibrakor.avilaentapaspractica.app.serialization.JsonSerialization
@@ -7,8 +7,10 @@ import com.ibrakor.ejercicioformulario02.app.ErrorApp
 import com.ibrakor.ejercicioformulario02.app.left
 import com.ibrakor.ejercicioformulario02.app.right
 import com.ibrakor.superheroes.features.list.domain.SuperHero
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
 
-class SuperHeroesLocalSource(private val context: Context, private val jsonSerialization: JsonSerialization) {
+class SuperHeroesLocalSource @Inject constructor(@ApplicationContext private val context: Context, private val jsonSerialization: JsonSerialization) {
     val sharedPreferences = context.getSharedPreferences("superheroes", Context.MODE_PRIVATE)
 
     fun getSuperHeroes(): Either<ErrorApp, List<SuperHero>>{
