@@ -23,7 +23,7 @@ object RemoteModule {
 
     @Singleton
     @Provides
-    fun provideLogginInterceptor() = HttpLoggingInterceptor().apply {
+    fun provideLoggingInterceptor() = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 

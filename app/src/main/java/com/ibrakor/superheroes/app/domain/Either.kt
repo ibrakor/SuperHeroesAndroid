@@ -1,4 +1,4 @@
-package com.ibrakor.ejercicioformulario02.app
+package com.ibrakor.superheroes.app.domain
 sealed class Either<out L, out R> {
 
     data class Left<out T>(val value: T) : Either<T, Nothing>() {

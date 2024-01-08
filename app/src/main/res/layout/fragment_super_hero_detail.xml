@@ -58,7 +58,7 @@
                 tools:text="Hola"
                 android:textStyle="bold"
                 android:layout_marginStart="@dimen/spacing"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:layout_marginTop="@dimen/spacing_top"
 
                 app:layout_constraintTop_toBottomOf="@+id/image_detail"
@@ -73,7 +73,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/superhero_name"
                 app:layout_constraintEnd_toEndOf="@id/image_detail"
                 android:textStyle="bold"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:layout_marginEnd="@dimen/spacing"
                 android:textColor="@color/aqua_blue"
                 tools:text="GOOD">

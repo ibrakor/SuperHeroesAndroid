@@ -10,21 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ibrakor.avilaentapaspractica.app.serialization.GsonSerialization
-import com.ibrakor.ejercicioformulario02.app.extensions.setUrl
+import com.ibrakor.superheroes.app.extensions.setUrl
 import com.ibrakor.superheroes.app.extensions.setAlignmentColor
 import com.ibrakor.superheroes.databinding.FragmentSuperHeroDetailBinding
-import com.ibrakor.superheroes.features.MainActivity
-import com.ibrakor.superheroes.features.detail.domain.GetSuperHeroUseCase
-import com.ibrakor.superheroes.app.data.BiographyDataRepository
-import com.ibrakor.superheroes.app.data.SuperHeroesDataRepository
-import com.ibrakor.superheroes.app.data.WorkDataRepository
-import com.ibrakor.superheroes.app.data.local.BiographyLocalSource
-import com.ibrakor.superheroes.app.data.local.SuperHeroesLocalSource
-import com.ibrakor.superheroes.app.data.local.WorkLocalSource
-import com.ibrakor.superheroes.app.data.remote.BiographyRemoteSource
-import com.ibrakor.superheroes.app.data.remote.SuperHeroesRemoteSource
-import com.ibrakor.superheroes.app.data.remote.WorkRemoteSource
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ibrakor.ejercicioformulario02.app.ErrorApp
+import com.ibrakor.superheroes.app.domain.ErrorApp
 import com.ibrakor.superheroes.features.detail.domain.GetSuperHeroUseCase
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -2,10 +2,10 @@ package com.ibrakor.superheroes.app.data.local
 
 import android.content.Context
 import com.ibrakor.avilaentapaspractica.app.serialization.JsonSerialization
-import com.ibrakor.ejercicioformulario02.app.Either
-import com.ibrakor.ejercicioformulario02.app.ErrorApp
-import com.ibrakor.ejercicioformulario02.app.left
-import com.ibrakor.ejercicioformulario02.app.right
+import com.ibrakor.superheroes.app.domain.Either
+import com.ibrakor.superheroes.app.domain.ErrorApp
+import com.ibrakor.superheroes.app.domain.left
+import com.ibrakor.superheroes.app.domain.right
 import com.ibrakor.superheroes.features.list.domain.Biography
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -14,7 +14,7 @@ class BiographyLocalSource @Inject constructor(@ApplicationContext private val c
 
     val sharedPreferences = context.getSharedPreferences("biographies",Context.MODE_PRIVATE)
 
-    fun getBiography(heroId: String): Either<ErrorApp, Biography>{
+    fun getBiography(heroId: String): Either<ErrorApp, Biography> {
         return try {
             val jsonBiography=sharedPreferences.getString(heroId,"")
             if (jsonBiography.isNullOrEmpty()){
@@ -31,7 +31,7 @@ class BiographyLocalSource @Inject constructor(@ApplicationContext private val c
         }
     }
 
-    fun saveBiography(heroId: String, biography: Biography): Either<ErrorApp, Boolean>{
+    fun saveBiography(heroId: String, biography: Biography): Either<ErrorApp, Boolean> {
         return try {
             with(sharedPreferences.edit()){
                 val jsonBiography = jsonSerialization.toJson(biography, Biography::class.java)

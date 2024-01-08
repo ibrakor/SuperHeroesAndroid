@@ -2,7 +2,7 @@ package com.ibrakor.superheroes.features.list.presentation
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.ibrakor.ejercicioformulario02.app.extensions.setUrl
+import com.ibrakor.superheroes.app.extensions.setUrl
 import com.ibrakor.superheroes.databinding.ViewSuperHeroItemBinding
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 

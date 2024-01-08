@@ -2,10 +2,10 @@ package com.ibrakor.superheroes.app.data.local
 
 import android.content.Context
 import com.ibrakor.avilaentapaspractica.app.serialization.JsonSerialization
-import com.ibrakor.ejercicioformulario02.app.Either
-import com.ibrakor.ejercicioformulario02.app.ErrorApp
-import com.ibrakor.ejercicioformulario02.app.left
-import com.ibrakor.ejercicioformulario02.app.right
+import com.ibrakor.superheroes.app.domain.Either
+import com.ibrakor.superheroes.app.domain.ErrorApp
+import com.ibrakor.superheroes.app.domain.left
+import com.ibrakor.superheroes.app.domain.right
 import com.ibrakor.superheroes.features.list.domain.SuperHero
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -13,7 +13,7 @@ import javax.inject.Inject
 class SuperHeroesLocalSource @Inject constructor(@ApplicationContext private val context: Context, private val jsonSerialization: JsonSerialization) {
     val sharedPreferences = context.getSharedPreferences("superheroes", Context.MODE_PRIVATE)
 
-    fun getSuperHeroes(): Either<ErrorApp, List<SuperHero>>{
+    fun getSuperHeroes(): Either<ErrorApp, List<SuperHero>> {
         return try {
             val jsonHeroes = sharedPreferences.all as Map<String, String>
             val heroes = jsonHeroes.values.map {
@@ -43,7 +43,7 @@ class SuperHeroesLocalSource @Inject constructor(@ApplicationContext private val
         }
     }
 
-    fun saveSuperHeroes(models: List<SuperHero>): Either<ErrorApp, Boolean>{
+    fun saveSuperHeroes(models: List<SuperHero>): Either<ErrorApp, Boolean> {
         try {
             with(sharedPreferences.edit()){
                 val jsonHeroes = models.map {

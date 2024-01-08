@@ -1,15 +1,15 @@
 package com.ibrakor.superheroes.app.data.remote.api
 
-import com.ibrakor.ejercicioformulario02.app.Either
-import com.ibrakor.ejercicioformulario02.app.ErrorApp
-import com.ibrakor.ejercicioformulario02.app.left
-import com.ibrakor.ejercicioformulario02.app.right
+import com.ibrakor.superheroes.app.domain.Either
+import com.ibrakor.superheroes.app.domain.ErrorApp
+import com.ibrakor.superheroes.app.domain.left
+import com.ibrakor.superheroes.app.domain.right
 import retrofit2.Response
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
-suspend fun <T: Any> apiCall(call: suspend () -> Response<T>): Either<ErrorApp, T>{
+suspend fun <T: Any> apiCall(call: suspend () -> Response<T>): Either<ErrorApp, T> {
     val response : Response<T>
     try {
         response = call.invoke()

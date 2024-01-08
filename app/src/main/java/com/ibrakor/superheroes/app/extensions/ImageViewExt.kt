@@ -1,4 +1,4 @@
-package com.ibrakor.ejercicioformulario02.app.extensions
+package com.ibrakor.superheroes.app.extensions
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide

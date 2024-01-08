@@ -2,10 +2,10 @@ package com.ibrakor.superheroes.app.data.local
 
 import android.content.Context
 import com.ibrakor.avilaentapaspractica.app.serialization.JsonSerialization
-import com.ibrakor.ejercicioformulario02.app.Either
-import com.ibrakor.ejercicioformulario02.app.ErrorApp
-import com.ibrakor.ejercicioformulario02.app.left
-import com.ibrakor.ejercicioformulario02.app.right
+import com.ibrakor.superheroes.app.domain.Either
+import com.ibrakor.superheroes.app.domain.ErrorApp
+import com.ibrakor.superheroes.app.domain.left
+import com.ibrakor.superheroes.app.domain.right
 import com.ibrakor.superheroes.features.list.domain.Work
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -13,7 +13,7 @@ import javax.inject.Inject
 class WorkLocalSource @Inject constructor(@ApplicationContext private val context: Context, private val jsonSerialization: JsonSerialization) {
     val sharedPref = context.getSharedPreferences("works",Context.MODE_PRIVATE)
 
-    fun getWork(heroId: String): Either<ErrorApp, Work>{
+    fun getWork(heroId: String): Either<ErrorApp, Work> {
         return try {
             val jsonWork = sharedPref.getString(heroId,"")
             if (jsonWork.isNullOrEmpty()){
@@ -28,7 +28,7 @@ class WorkLocalSource @Inject constructor(@ApplicationContext private val contex
         }
     }
 
-    fun saveWork(heroId: String,work: Work): Either<ErrorApp, Boolean>{
+    fun saveWork(heroId: String,work: Work): Either<ErrorApp, Boolean> {
         return try {
 
 
