@@ -8,9 +8,7 @@ import androidx.fragment.app.commit
 
 import com.ibrakor.superheroes.R
 import com.ibrakor.superheroes.databinding.ActivityMainBinding
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
@@ -18,5 +16,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
+    fun changeFragment(fragment: Fragment){
+        supportFragmentManager.commit {
+            replace(R.id.fragment_container, fragment)
+            setReorderingAllowed(true)
+            addToBackStack(null)
+        }
     }
 }

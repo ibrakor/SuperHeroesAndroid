@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,20 +14,18 @@ import com.ibrakor.avilaentapaspractica.app.serialization.GsonSerialization
 import com.ibrakor.superheroes.R
 import com.ibrakor.superheroes.databinding.FragmentSuperHeroesListBinding
 import com.ibrakor.superheroes.features.MainActivity
-import com.ibrakor.superheroes.app.data.BiographyDataRepository
-import com.ibrakor.superheroes.app.data.SuperHeroesDataRepository
-import com.ibrakor.superheroes.app.data.WorkDataRepository
-import com.ibrakor.superheroes.app.data.local.BiographyLocalSource
-import com.ibrakor.superheroes.app.data.local.SuperHeroesLocalSource
-import com.ibrakor.superheroes.app.data.local.WorkLocalSource
-import com.ibrakor.superheroes.app.data.remote.BiographyRemoteSource
-import com.ibrakor.superheroes.app.data.remote.SuperHeroesRemoteSource
-import com.ibrakor.superheroes.app.data.remote.WorkRemoteSource
+import com.ibrakor.superheroes.features.list.data.BiographyDataRepository
+import com.ibrakor.superheroes.features.list.data.SuperHeroesDataRepository
+import com.ibrakor.superheroes.features.list.data.WorkDataRepository
+import com.ibrakor.superheroes.features.list.data.local.BiographyLocalSource
+import com.ibrakor.superheroes.features.list.data.local.SuperHeroesLocalSource
+import com.ibrakor.superheroes.features.list.data.local.WorkLocalSource
+import com.ibrakor.superheroes.features.list.data.remote.BiographyRemoteSource
+import com.ibrakor.superheroes.features.list.data.remote.SuperHeroesRemoteSource
+import com.ibrakor.superheroes.features.list.data.remote.WorkRemoteSource
 import com.ibrakor.superheroes.features.list.domain.GetSuperHeroesFeedUseCase
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class SuperHeroListFragment : Fragment() {
     private var _binding: FragmentSuperHeroesListBinding? = null
     private val binding get() = _binding!!
@@ -37,7 +34,29 @@ class SuperHeroListFragment : Fragment() {
 
     private val superHeroAdapter = SuperHeroAdapter()
 
-    private val viewModel by viewModels<SuperHeroListViewModel>()
+    private val viewModel: SuperHeroListViewModel by lazy {
+        val superHeroRepository = SuperHeroesDataRepository(
+            SuperHeroesRemoteSource(),
+            SuperHeroesLocalSource((activity as MainActivity), GsonSerialization())
+        )
+        val workRepository = WorkDataRepository(
+            WorkRemoteSource(), WorkLocalSource(
+                (activity as MainActivity),
+                GsonSerialization()
+            )
+        )
+        val biographyRepository = BiographyDataRepository(
+            BiographyRemoteSource(),
+            BiographyLocalSource((activity as MainActivity), GsonSerialization())
+        )
+        SuperHeroListViewModel(
+            GetSuperHeroesFeedUseCase(
+                superHeroRepository,
+                workRepository,
+                biographyRepository
+            )
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -72,13 +91,14 @@ class SuperHeroListFragment : Fragment() {
 
 
             }
-            skeleton=recyclerSuperHero.applySkeleton(R.layout.view_super_hero_item,8)
+
         }
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
         viewModel.loadSuperHerosList()
+        skeleton=binding.recyclerSuperHero.applySkeleton(R.layout.view_super_hero_item,8)
 
     }
     private fun setupObserver() {

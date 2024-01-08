@@ -1,4 +1,4 @@
-package com.ibrakor.superheroes.app.data.remote.api
+package com.ibrakor.superheroes.features.list.data.api
 
 import com.google.gson.annotations.SerializedName
 import com.ibrakor.superheroes.features.detail.domain.Images

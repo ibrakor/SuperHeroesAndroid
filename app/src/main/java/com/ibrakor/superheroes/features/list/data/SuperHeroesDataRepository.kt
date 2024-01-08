@@ -1,16 +1,15 @@
-package com.ibrakor.superheroes.app.data
+package com.ibrakor.superheroes.features.list.data
 
 import com.ibrakor.ejercicioformulario02.app.Either
 import com.ibrakor.ejercicioformulario02.app.ErrorApp
 import com.ibrakor.ejercicioformulario02.app.left
 import com.ibrakor.ejercicioformulario02.app.right
-import com.ibrakor.superheroes.app.data.local.SuperHeroesLocalSource
-import com.ibrakor.superheroes.app.data.remote.SuperHeroesRemoteSource
+import com.ibrakor.superheroes.features.list.data.local.SuperHeroesLocalSource
+import com.ibrakor.superheroes.features.list.data.remote.SuperHeroesRemoteSource
 import com.ibrakor.superheroes.features.list.domain.SuperHero
 import com.ibrakor.superheroes.features.list.domain.SuperHeroRepository
-import javax.inject.Inject
 
-class SuperHeroesDataRepository  @Inject constructor(
+class SuperHeroesDataRepository(
     private val remoteDataSource: SuperHeroesRemoteSource,
     private val localDataSource: SuperHeroesLocalSource
 ) : SuperHeroRepository {

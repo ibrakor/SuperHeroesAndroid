@@ -7,9 +7,8 @@ import com.ibrakor.superheroes.features.list.domain.BiographyRepository
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 import com.ibrakor.superheroes.features.list.domain.SuperHeroRepository
 import com.ibrakor.superheroes.features.list.domain.WorkRepository
-import javax.inject.Inject
 
-class GetSuperHeroUseCase @Inject constructor(private val superHeroRepository: SuperHeroRepository,
+class GetSuperHeroUseCase(private val superHeroRepository: SuperHeroRepository,
                           private val workRepository: WorkRepository,
                           private val biographyRepository: BiographyRepository
 ) {

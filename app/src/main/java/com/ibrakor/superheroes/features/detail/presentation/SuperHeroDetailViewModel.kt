@@ -7,13 +7,10 @@ import androidx.lifecycle.viewModelScope
 import com.ibrakor.ejercicioformulario02.app.ErrorApp
 import com.ibrakor.superheroes.features.detail.domain.GetSuperHeroUseCase
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class SuperHeroDetailViewModel @Inject constructor(private val getSuperHeroUseCase: GetSuperHeroUseCase): ViewModel() {
+class SuperHeroDetailViewModel(private val getSuperHeroUseCase: GetSuperHeroUseCase): ViewModel() {
     private val _uiState = MutableLiveData<UiState>()
     val uiState: LiveData<UiState> = _uiState
     data class UiState(

@@ -9,6 +9,11 @@ import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 class SuperHeroViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
     private lateinit var binding: ViewSuperHeroItemBinding
+    companion object {
+        const val SUPERHERO_ID_EXTRA = "superhero_id_extra"
+    }
+
+
 
     fun bind(model: SuperHeroOutput, onClick: (Int) -> Unit) {
         binding = ViewSuperHeroItemBinding.bind(view)
