@@ -1,4 +1,4 @@
-package com.ibrakor.superheroes.features.list.presentation
+package com.ibrakor.superheroes.features.list.presentation.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput

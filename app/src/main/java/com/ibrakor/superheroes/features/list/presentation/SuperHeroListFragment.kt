@@ -11,21 +11,10 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.faltenreich.skeletonlayout.Skeleton
 import com.faltenreich.skeletonlayout.applySkeleton
-import com.ibrakor.avilaentapaspractica.app.serialization.GsonSerialization
 import com.ibrakor.superheroes.R
 import com.ibrakor.superheroes.databinding.FragmentSuperHeroesListBinding
-import com.ibrakor.superheroes.features.MainActivity
-import com.ibrakor.superheroes.app.data.BiographyDataRepository
-import com.ibrakor.superheroes.app.data.SuperHeroesDataRepository
-import com.ibrakor.superheroes.app.data.WorkDataRepository
-import com.ibrakor.superheroes.app.data.local.BiographyLocalSource
-import com.ibrakor.superheroes.app.data.local.SuperHeroesLocalSource
-import com.ibrakor.superheroes.app.data.local.WorkLocalSource
-import com.ibrakor.superheroes.app.data.remote.BiographyRemoteSource
-import com.ibrakor.superheroes.app.data.remote.SuperHeroesRemoteSource
-import com.ibrakor.superheroes.app.data.remote.WorkRemoteSource
-import com.ibrakor.superheroes.features.list.domain.GetSuperHeroesFeedUseCase
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
+import com.ibrakor.superheroes.features.list.presentation.adapter.SuperHeroAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -63,7 +52,7 @@ class SuperHeroListFragment : Fragment() {
                     false
                 )
                 adapter = superHeroAdapter
-                superHeroAdapter.setEvent  {
+                superHeroAdapter.setEvent {
                     findNavController().navigate(
                         SuperHeroListFragmentDirections.actionFromFragmentListToFragmentDetail(it.toString())
                     )
@@ -72,7 +61,15 @@ class SuperHeroListFragment : Fragment() {
 
 
             }
-            skeleton=recyclerSuperHero.applySkeleton(R.layout.view_super_hero_item,8)
+            skeleton = recyclerSuperHero.applySkeleton(R.layout.view_super_hero_item, 8)
+
+            refreshLayout.apply {
+
+                setOnRefreshListener {
+                    viewModel.loadSuperHerosList()
+
+                }
+            }
         }
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -93,6 +90,8 @@ class SuperHeroListFragment : Fragment() {
             }
             it.superHeroList?.let {
                 bindDataSuperHero(it)
+                binding.refreshLayout.isRefreshing = false
+
             }
         }
         viewModel.uiState.observe(viewLifecycleOwner, observer)
