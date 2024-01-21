@@ -26,8 +26,7 @@ Ejercicio que muestra una lista de Superheroes y al hacer click en uno de ellos 
 
 ## Capturas de pantalla
 ### Video:
-(Old video)
-https://github.com/ibrakor/SuperHeroesAndroid/assets/104716025/fed995bc-5ae9-4ba7-badf-73b82f0fc433
+
 
 ### Lista:
 (Old image)
