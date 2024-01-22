@@ -7,4 +7,6 @@
     <string name="label_fight">Combate</string>
     <string name="main_title">SuperHeroes</string>
     <string name="description_title">SuperHero</string>
+    <string name="search_view_hint">Buscar</string>
+
 </resources>

@@ -1,7 +1,6 @@
-package com.ibrakor.superheroes.features.detail.presentation
+package com.ibrakor.superheroes.features.detail.presentation.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 
 class SuperHeroDetailDiffUtil: DiffUtil.ItemCallback<String>() {
 
