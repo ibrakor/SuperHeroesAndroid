@@ -10,9 +10,10 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ibrakor.superheroes.app.extensions.setUrl
 import com.ibrakor.superheroes.app.extensions.setAlignmentColor
+import com.ibrakor.superheroes.app.extensions.setUrl
 import com.ibrakor.superheroes.databinding.FragmentSuperHeroDetailBinding
+import com.ibrakor.superheroes.features.detail.presentation.adapter.SuperHeroDetailAdapter
 import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,7 +41,7 @@ class SuperHeroDetailFragment : Fragment() {
 
         binding.apply {
             detailToolbar.setNavigationOnClickListener {
-                findNavController().navigateUp()
+                findNavController().popBackStack()
             }
 
             detailsImagesRecyclerView.layoutManager = LinearLayoutManager(

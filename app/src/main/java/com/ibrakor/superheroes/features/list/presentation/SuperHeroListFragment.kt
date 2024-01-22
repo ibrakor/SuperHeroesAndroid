@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -27,6 +28,7 @@ class SuperHeroListFragment : Fragment() {
     private val superHeroAdapter = SuperHeroAdapter()
 
     private val viewModel by viewModels<SuperHeroListViewModel>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -67,9 +69,11 @@ class SuperHeroListFragment : Fragment() {
 
                 setOnRefreshListener {
                     viewModel.loadSuperHerosList()
-
                 }
+
             }
+
+
         }
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -90,11 +94,33 @@ class SuperHeroListFragment : Fragment() {
             }
             it.superHeroList?.let {
                 bindDataSuperHero(it)
+                setupSearcher(it)
                 binding.refreshLayout.isRefreshing = false
 
             }
         }
         viewModel.uiState.observe(viewLifecycleOwner, observer)
+    }
+
+    private fun setupSearcher(superHeroOutputs: List<SuperHeroOutput>) {
+
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                binding.searchView.clearFocus()
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                val searchedSuperHeroes = superHeroOutputs.filter { superHero ->
+                    superHero.superHero.name.lowercase().contains(newText.toString().lowercase())
+
+
+                }
+                bindDataSuperHero(searchedSuperHeroes)
+                return false
+            }
+        })
     }
 
     private fun showLoading() {

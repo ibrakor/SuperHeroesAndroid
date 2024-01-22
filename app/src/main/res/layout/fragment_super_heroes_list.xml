@@ -13,9 +13,24 @@
 
         <include
             android:id="@+id/layout_toolbar"
-            layout="@layout/view_toolbar">
+            layout="@layout/view_toolbar"
+            android:visibility="gone">
 
         </include>
+
+        <androidx.appcompat.widget.SearchView
+
+
+            android:layout_margin="@dimen/google_margin"
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:defaultQueryHint="@string/search_view_hint"
+            android:queryHint="@string/search_view_hint"
+            app:iconifiedByDefault="false"
+            android:focusable="false"
+            android:background="@drawable/search_view_bk" />
+
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/refresh_layout"
@@ -34,7 +49,7 @@
                     android:id="@+id/recycler_super_hero"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    tools:listitem="@layout/view_super_hero_item"></androidx.recyclerview.widget.RecyclerView>
+                    tools:listitem="@layout/view_super_hero_item" />
 
 
             </androidx.core.widget.NestedScrollView>

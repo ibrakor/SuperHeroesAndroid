@@ -95,9 +95,10 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/super_hero_conections"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@id/superhero_name"
+                app:layout_constraintEnd_toEndOf="@id/image_detail"
                 app:layout_constraintTop_toBottomOf="@id/super_hero_full_name"
                 tools:text="Descripcion"
                 android:layout_marginTop="@dimen/spacing_top">

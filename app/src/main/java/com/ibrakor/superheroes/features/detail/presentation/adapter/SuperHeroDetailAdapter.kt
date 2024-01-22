@@ -1,9 +1,9 @@
-package com.ibrakor.superheroes.features.detail.presentation
+package com.ibrakor.superheroes.features.detail.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.ibrakor.superheroes.R
 import androidx.recyclerview.widget.ListAdapter
+import com.ibrakor.superheroes.R
 
 class SuperHeroDetailAdapter: ListAdapter<String, SuperHeroDetailViewHolder>(SuperHeroDetailDiffUtil()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperHeroDetailViewHolder {
