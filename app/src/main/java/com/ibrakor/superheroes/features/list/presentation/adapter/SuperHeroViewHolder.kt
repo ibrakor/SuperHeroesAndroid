@@ -1,4 +1,4 @@
-package com.ibrakor.superheroes.features.list.presentation
+package com.ibrakor.superheroes.features.list.presentation.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

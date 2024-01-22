@@ -1,4 +1,4 @@
-package com.ibrakor.superheroes.features.list.presentation
+package com.ibrakor.superheroes.features.list.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +9,7 @@ import com.ibrakor.superheroes.features.list.domain.SuperHeroOutput
 class SuperHeroAdapter: ListAdapter<SuperHeroOutput, SuperHeroViewHolder>(SuperHeroDiffUtil()) {
 
 
-    lateinit var onClick:(heroId: Int) -> Unit
+    private lateinit var onClick: (heroId: Int) -> Unit
     fun setEvent(onClick: (Int) -> Unit){
         this.onClick = onClick
     }

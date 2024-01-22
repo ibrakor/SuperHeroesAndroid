@@ -42,30 +42,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp">
+
             <ImageView
                 android:id="@+id/image_detail"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/width_image_detail"
                 android:layout_height="@dimen/heigh_image_detail"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:scaleType="centerCrop"
-                tools:src="@tools:sample/backgrounds/scenic">
-            </ImageView>
-            <TextView
+                tools:src="@tools:sample/backgrounds/scenic"></ImageView>
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/AppTitleCard"
                 android:id="@+id/superhero_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Hola"
-                android:textStyle="bold"
                 android:layout_marginStart="@dimen/spacing"
-                android:textSize="25sp"
                 android:layout_marginTop="@dimen/spacing_top"
 
                 app:layout_constraintTop_toBottomOf="@+id/image_detail"
                 app:layout_constraintStart_toStartOf="@id/image_detail">
 
-            </TextView>
-            <TextView
+            </com.google.android.material.textview.MaterialTextView>
+
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/superhero_alignment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,29 +80,29 @@
                 android:textColor="@color/aqua_blue"
                 tools:text="GOOD">
 
-            </TextView>
-            <TextView
+            </com.google.android.material.textview.MaterialTextView>
+
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/super_hero_full_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@id/superhero_name"
                 app:layout_constraintTop_toBottomOf="@id/superhero_name"
                 tools:text="NombreCompleto"
-                android:layout_marginTop="@dimen/spacing_top"
-                >
+                android:layout_marginTop="@dimen/spacing_top">
 
-            </TextView>
-            <TextView
+            </com.google.android.material.textview.MaterialTextView>
+
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/super_hero_conections"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@id/superhero_name"
                 app:layout_constraintTop_toBottomOf="@id/super_hero_full_name"
                 tools:text="Descripcion"
-                android:layout_marginTop="@dimen/spacing_top"
-                >
+                android:layout_marginTop="@dimen/spacing_top">
 
-            </TextView>
+            </com.google.android.material.textview.MaterialTextView>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/superhero_powerstats"
                 android:layout_marginHorizontal="@dimen/spacing_horizontal"
@@ -109,7 +111,8 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@id/superhero_name"
                 app:layout_constraintTop_toBottomOf="@id/super_hero_conections">
-                <TextView
+
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/superhero_intelligence"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -118,8 +121,9 @@
                     app:layout_constraintStart_toStartOf="parent">
                     >
 
-                </TextView>
-                <TextView
+                </com.google.android.material.textview.MaterialTextView>
+
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/superhero_speed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -128,8 +132,9 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:text="@string/label_speed">
 
-                </TextView>
-                <TextView
+                </com.google.android.material.textview.MaterialTextView>
+
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/superhero_fight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -138,8 +143,9 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:text="@string/label_fight">
 
-                </TextView>
-                <TextView
+                </com.google.android.material.textview.MaterialTextView>
+
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/intelligence_valor"
                     android:layout_marginTop="@dimen/spacing"
                     android:layout_width="wrap_content"
@@ -147,9 +153,9 @@
                     app:layout_constraintTop_toBottomOf="@id/superhero_intelligence"
                     app:layout_constraintStart_toStartOf="@id/superhero_intelligence"
                     app:layout_constraintEnd_toEndOf="@id/superhero_intelligence"
-                    tools:text="30">
-                </TextView>
-                <TextView
+                    tools:text="30"></com.google.android.material.textview.MaterialTextView>
+
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/speed_valor"
                     android:layout_marginTop="@dimen/spacing"
                     android:layout_width="wrap_content"
@@ -157,9 +163,9 @@
                     app:layout_constraintTop_toBottomOf="@id/superhero_speed"
                     app:layout_constraintStart_toStartOf="@id/superhero_speed"
                     app:layout_constraintEnd_toEndOf="@id/superhero_speed"
-                    tools:text="30">
-                </TextView>
-                <TextView
+                    tools:text="30"></com.google.android.material.textview.MaterialTextView>
+
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/figh_valor"
                     android:layout_marginTop="@dimen/spacing"
                     android:layout_width="wrap_content"
@@ -167,10 +173,10 @@
                     app:layout_constraintTop_toBottomOf="@id/superhero_fight"
                     app:layout_constraintStart_toStartOf="@id/superhero_fight"
                     app:layout_constraintEnd_toEndOf="@id/superhero_fight"
-                    tools:text="30">
-                </TextView>
+                    tools:text="30"></com.google.android.material.textview.MaterialTextView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 app:layout_constraintStart_toStartOf="@id/superhero_name"
                 app:layout_constraintEnd_toEndOf="@id/superhero_alignment"
@@ -181,13 +187,16 @@
                 app:layout_constraintTop_toBottomOf="@id/superhero_powerstats">
 
             </androidx.recyclerview.widget.RecyclerView>
+
+            <include
+                android:id="@+id/view_error"
+                layout="@layout/view_error"
+                tools:layout_editor_absoluteX="38dp"
+                tools:layout_editor_absoluteY="-52dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <include
-        layout="@layout/view_error"
-        android:id="@+id/view_error" />
 </FrameLayout>

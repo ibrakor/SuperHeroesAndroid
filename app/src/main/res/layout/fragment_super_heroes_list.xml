@@ -5,29 +5,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-    <include android:id="@+id/layout_toolbar"
-        layout="@layout/view_toolbar">
-
-    </include>
-
-    <!-- Note: A RecyclerView can also be used -->
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:orientation="vertical">
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_super_hero"
+        <include
+            android:id="@+id/layout_toolbar"
+            layout="@layout/view_toolbar">
+
+        </include>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <!-- Note: A RecyclerView can also be used -->
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@layout/view_super_hero_item">
-            </androidx.recyclerview.widget.RecyclerView>
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_super_hero"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/view_super_hero_item"></androidx.recyclerview.widget.RecyclerView>
 
-    </androidx.core.widget.NestedScrollView>
+
+            </androidx.core.widget.NestedScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </LinearLayout>
 
 
 
