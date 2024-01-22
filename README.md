@@ -1,4 +1,4 @@
-# Ejercicio SuperHeroes
+# SuperHeroes
 App que muestra una lista de Superheroes y al hacer click en uno de ellos se puede visualizar mas informacion. Todos los datos se obtienen de red y luego se guardan en un archivo JSON.
 
 ## Conceptos
