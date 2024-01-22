@@ -1,10 +1,5 @@
 # Ejercicio SuperHeroes
-Ejercicio que muestra una lista de Superheroes y al hacer click en uno de ellos se puede visualizar mas informacion. Todos los datos se obtienen de red y luego se guardan en un archivo JSON.
-
-## Módulos
-- Programación Multimedia y Dispositivos Móviles
-- Acceso a Datos
-- Programación de Servicios y Procesos
+App que muestra una lista de Superheroes y al hacer click en uno de ellos se puede visualizar mas informacion. Todos los datos se obtienen de red y luego se guardan en un archivo JSON.
 
 ## Conceptos
 - Activity
@@ -22,7 +17,8 @@ Ejercicio que muestra una lista de Superheroes y al hacer click en uno de ellos 
 - LiveData
 - Patrón Observer
 - SharedPreferences
-- build.gradle (Glide, Skeleton Layout, Retrofit 2, Gson, Loggin interceptor, Refresh Layout, Hilt, MockK, JUnit 5).
+- build.gradle (Glide, Skeleton Layout, Retrofit 2, Gson, Loggin interceptor, Refresh Layout, Hilt, MockK, JUnit 5)
+- Continuous Integration (CI)
 
 ## Capturas de pantalla
 ### Video:
