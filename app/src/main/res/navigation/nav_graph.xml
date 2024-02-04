@@ -13,7 +13,11 @@
 
         <action
             android:id="@+id/action_from_fragment_list_to_fragment_detail"
-            app:destination="@+id/fragment_detail" />
+            app:destination="@+id/fragment_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/fragment_detail"
@@ -25,6 +29,17 @@
             app:nullable="false">
 
         </argument>
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_login"
+        android:name="com.ibrakor.superheroes.features.account.presentation.LoginFragment">
+        <action
+            android:id="@+id/action_fragment_login_to_fragment_superheroes_list"
+            app:destination="@id/fragment_super_heroes_list"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
 
