@@ -9,5 +9,17 @@
 
     <style name="AppSecondTitleCard" parent="TextAppearance.Material3.TitleMedium" />
 
+    <style name="AppTextLogin" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="AppFilledButton" parent="Widget.Material3.Button.IconButton.Filled">
+
+    </style>
+
+    <style name="AppOutlinedButton" parent="Widget.Material3.Button.IconButton.Outlined">
+
+    </style>
+
 </resources>
 

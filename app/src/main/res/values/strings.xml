@@ -8,5 +8,9 @@
     <string name="main_title">SuperHeroes</string>
     <string name="description_title">SuperHero</string>
     <string name="search_view_hint">Buscar</string>
+    <string name="google_login">Identificarse con Google</string>
+    <string name="button_cancel">Cancelar</string>
+    <string name="label_login">Puede identificarse con su cuenta de Google</string>
+
 
 </resources>

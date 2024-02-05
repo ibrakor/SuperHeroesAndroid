@@ -41,7 +41,7 @@ class SuperHeroDetailFragment : Fragment() {
 
         binding.apply {
             detailToolbar.setNavigationOnClickListener {
-                findNavController().popBackStack()
+                findNavController().navigateUp()
             }
 
             detailsImagesRecyclerView.layoutManager = LinearLayoutManager(
