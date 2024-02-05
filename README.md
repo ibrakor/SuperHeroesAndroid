@@ -21,6 +21,7 @@ App que muestra una lista de Superheroes y al hacer click en uno de ellos se pue
 - SharedPreferences
 - build.gradle (Glide, Skeleton Layout, Retrofit 2, Gson, Loggin interceptor, Refresh Layout, Hilt, MockK, JUnit 5)
 - Continuous Integration (CI)
+- Google Login (Firebase)
 
 
 ## Video:
