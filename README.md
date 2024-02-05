@@ -1,7 +1,7 @@
 # SuperHeroes
 ![image](https://github.com/ibrakor/SuperHeroesAndroid/assets/104716025/f38c068e-9467-4fcc-b5b2-d7e9e1016267)
 
-App que muestra una lista de Superheroes y al hacer click en uno de ellos se puede visualizar mas informacion. Todos los datos se obtienen de red y luego se guardan en un archivo JSON.
+App que muestra una lista de Superheroes y al hacer click en uno de ellos se puede visualizar mas informacion. Todos los datos se obtienen de red y luego se guardan en un archivo XML.
 
 ## Conceptos
 - Activity
