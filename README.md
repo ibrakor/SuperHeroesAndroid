@@ -19,7 +19,7 @@ App que muestra una lista de Superheroes y al hacer click en uno de ellos se pue
 - LiveData
 - Patrón Observer
 - SharedPreferences
-- build.gradle (Glide, Skeleton Layout, Retrofit 2, Gson, Loggin interceptor, Refresh Layout, Hilt, MockK, JUnit 5)
+- build.gradle (Glide, Skeleton Layout, Retrofit 2, Gson, Loggin interceptor, Refresh Layout, Hilt, MockK, JUnit 5, Firebase Auth)
 - Continuous Integration (CI)
 - Google Login (Firebase)
 
